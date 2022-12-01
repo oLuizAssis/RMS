@@ -17,5 +17,9 @@ namespace RMS.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+
+        protected void Login(object s, EventArgs e)
+        {
+        }
     }
 }

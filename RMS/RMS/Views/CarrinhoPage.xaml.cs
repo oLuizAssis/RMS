@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RMS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace RMS.Views
         public CarrinhoPage()
         {
             InitializeComponent();
+            BindingContext = new CarrinhoViewModel();
         }
     }
 }
