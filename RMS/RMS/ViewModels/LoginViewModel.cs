@@ -1,4 +1,6 @@
-﻿using RMS.Views;
+﻿using RMS.Services;
+using RMS.Views;
+using RMS.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +13,26 @@ namespace RMS.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         public Command LoginCommand { get; }
+        LoginService _LoginService = new LoginService();
+
+
+        private string _senha;
+        public string Senha
+        {
+            get { return _senha; }
+            set { SetProperty(ref _senha, value); }
+        }
+
+
+        private string _email;
+        public string Email
+        {
+            get { return _email; }
+            set { SetProperty(ref _email, value); }
+        }
+
+
+
 
         public LoginViewModel()
         {
@@ -19,6 +41,13 @@ namespace RMS.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
+            var retorno = await _LoginService.Logar(Email);
+            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+        }
+
+        public async Task EnviaSms()
+        {
+
             var duration = TimeSpan.FromSeconds(1);
             Vibration.Vibrate(duration);
 
@@ -26,13 +55,6 @@ namespace RMS.ViewModels
             var location = await Geolocation.GetLastKnownLocationAsync();
             var state = Battery.State;
 
-            await EnviaSms();
-
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
-        }
-
-        public async Task EnviaSms()
-        {
             var screenshot = await Screenshot.CaptureAsync();
             var stream = await screenshot.OpenReadAsync();
 

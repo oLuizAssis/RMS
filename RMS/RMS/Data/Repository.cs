@@ -13,7 +13,7 @@ namespace RMS.Data
 
         private SQLiteAsyncConnection db;
 
-        public Repository(string dbPath)
+        public Repository()
         {
             this.db = Task.Run(async () => await GetDatabaseConnection<T>()).Result;
 

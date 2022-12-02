@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:local="clr-namespace:LoginPageSpeedUI.CustomRenderer"
-             mc:Ignorable="d"
              x:Class="RMS.Views.LoginPage"
              Shell.NavBarIsVisible="False">
 
@@ -32,8 +28,7 @@
                                     <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
-
-                                    <local:CustomEntry Placeholder="Email" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding Email}" Placeholder="Email" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -42,8 +37,7 @@
                                     <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
-
-                                    <local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding Senha}" Placeholder="Password" IsPassword="True" TextColor="HotPink" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
