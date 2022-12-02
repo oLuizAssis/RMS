@@ -1,18 +1,26 @@
-﻿using System;
+﻿using RMS.Models;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
+using RMS.Data;
 using Xamarin.Forms;
 
 namespace RMS.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
+        public ICommand LoginCommand { get; }
+
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            LoginCommand = new Command(async () => await gravar());
+
         }
 
-        public ICommand OpenWebCommand { get; }
+        public async Task gravar()
+        {
+        }
+
     }
 }
