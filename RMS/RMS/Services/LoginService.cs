@@ -46,11 +46,11 @@ namespace RMS.Services
             }
         }
 
-        public async Task<bool> Logar(string email)
+        public async Task<bool> Logar(string email, string senha)
         {
             try
             {
-                var usuarios = await _UsuarioRepository.Get(c=> c.EMAIL == email);
+                var usuarios = await _UsuarioRepository.Get(c=> c.EMAIL == email && c.SENHA == senha);
 
                 return usuarios.Count() > 0 ? true : false;
             }

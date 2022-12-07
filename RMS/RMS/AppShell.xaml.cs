@@ -1,5 +1,6 @@
 ﻿using RMS.ViewModels;
 using RMS.Views;
+using RMS.Views.Login;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -13,6 +14,7 @@ namespace RMS
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(CriarLoginPage), typeof(CriarLoginPage));
         }
 
     }
