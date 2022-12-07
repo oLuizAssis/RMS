@@ -5,6 +5,8 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 
+// teste commit
+
 namespace RMS.Droid
 {
     [Activity(Label = "RMS", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
