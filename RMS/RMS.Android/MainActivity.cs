@@ -5,7 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 
-// teste commit
+// teste commit asdasd
 
 namespace RMS.Droid
 {

@@ -14,7 +14,7 @@ namespace RMS.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.0.0.73")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.1.0.5")]
 	public partial class Resource
 	{
 		
@@ -16721,31 +16721,112 @@ namespace RMS.Droid
 			public const int preference_list_divider_material = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int remove_cart = 2131165347;
+			public const int prod_id10_01 = 2131165347;
 			
 			// aapt resource value: 0x7F0700A4
-			public const int shopping_basket = 2131165348;
+			public const int prod_id10_02 = 2131165348;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int shopping_cart = 2131165349;
+			public const int prod_id10_03 = 2131165349;
 			
 			// aapt resource value: 0x7F0700A6
-			public const int shopping_cart1 = 2131165350;
+			public const int prod_id1_01 = 2131165350;
 			
 			// aapt resource value: 0x7F0700A7
-			public const int test_custom_background = 2131165351;
+			public const int prod_id1_02 = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
-			public const int tooltip_frame_dark = 2131165352;
+			public const int prod_id1_03 = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
-			public const int tooltip_frame_light = 2131165353;
+			public const int prod_id2_01 = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int WildKat = 2131165354;
+			public const int prod_id2_02 = 2131165354;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int xamarin_logo = 2131165355;
+			public const int prod_id2_03 = 2131165355;
+			
+			// aapt resource value: 0x7F0700AC
+			public const int prod_id3_01 = 2131165356;
+			
+			// aapt resource value: 0x7F0700AD
+			public const int prod_id3_02 = 2131165357;
+			
+			// aapt resource value: 0x7F0700AE
+			public const int prod_id3_03 = 2131165358;
+			
+			// aapt resource value: 0x7F0700AF
+			public const int prod_id4_01 = 2131165359;
+			
+			// aapt resource value: 0x7F0700B0
+			public const int prod_id4_02 = 2131165360;
+			
+			// aapt resource value: 0x7F0700B1
+			public const int prod_id4_03 = 2131165361;
+			
+			// aapt resource value: 0x7F0700B2
+			public const int prod_id5_01 = 2131165362;
+			
+			// aapt resource value: 0x7F0700B3
+			public const int prod_id5_02 = 2131165363;
+			
+			// aapt resource value: 0x7F0700B4
+			public const int prod_id5_03 = 2131165364;
+			
+			// aapt resource value: 0x7F0700B5
+			public const int prod_id7_01 = 2131165365;
+			
+			// aapt resource value: 0x7F0700B6
+			public const int prod_id7_02 = 2131165366;
+			
+			// aapt resource value: 0x7F0700B7
+			public const int prod_id7_03 = 2131165367;
+			
+			// aapt resource value: 0x7F0700B8
+			public const int prod_id8_01 = 2131165368;
+			
+			// aapt resource value: 0x7F0700B9
+			public const int prod_id8_02 = 2131165369;
+			
+			// aapt resource value: 0x7F0700BA
+			public const int prod_id8_03 = 2131165370;
+			
+			// aapt resource value: 0x7F0700BB
+			public const int prod_id9_01 = 2131165371;
+			
+			// aapt resource value: 0x7F0700BC
+			public const int prod_id9_02 = 2131165372;
+			
+			// aapt resource value: 0x7F0700BD
+			public const int prod_id9_03 = 2131165373;
+			
+			// aapt resource value: 0x7F0700BE
+			public const int remove_cart = 2131165374;
+			
+			// aapt resource value: 0x7F0700BF
+			public const int shopping_basket = 2131165375;
+			
+			// aapt resource value: 0x7F0700C0
+			public const int shopping_cart = 2131165376;
+			
+			// aapt resource value: 0x7F0700C1
+			public const int shopping_cart1 = 2131165377;
+			
+			// aapt resource value: 0x7F0700C2
+			public const int test_custom_background = 2131165378;
+			
+			// aapt resource value: 0x7F0700C3
+			public const int tooltip_frame_dark = 2131165379;
+			
+			// aapt resource value: 0x7F0700C4
+			public const int tooltip_frame_light = 2131165380;
+			
+			// aapt resource value: 0x7F0700C5
+			public const int WildKat = 2131165381;
+			
+			// aapt resource value: 0x7F0700C6
+			public const int xamarin_logo = 2131165382;
 			
 			static Drawable()
 			{
