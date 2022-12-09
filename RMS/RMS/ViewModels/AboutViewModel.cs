@@ -9,6 +9,8 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using RMS.Data.Interfaces;
 using System.Collections.Generic;
+using Acr.UserDialogs;
+using RMS.Services;
 
 namespace RMS.ViewModels
 {   
@@ -16,16 +18,23 @@ namespace RMS.ViewModels
     {
 
         private IRepository<PRODUTO> _ProdutoRepository;
-        private Item _selectedItem;
+        private IRepository<CARRINHO> _carrinhoRepository;
+        public PRODUTO SelectedItem 
+        {
+            get;
+            set;
+        }
 
         public ObservableCollection<PRODUTO> Produtos { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<PRODUTO> ItemTappedCommand { get; }
 
-        public AboutViewModel()
+    public AboutViewModel()
         {
+            ItemTappedCommand = new Command<PRODUTO>(async (item) => await OnTapped(item));
             _ProdutoRepository = new Repository<PRODUTO>();
+            _carrinhoRepository = new Repository<CARRINHO>();
             Title = "Produtos";
             var teste = InserirProdutos();
             var produtos = _ProdutoRepository.Get().Result;
@@ -54,6 +63,25 @@ namespace RMS.ViewModels
 
             return 1;
         }
+
+        public async Task OnTapped(PRODUTO produto)
+        {
+            var validaItem = _carrinhoRepository.GetFirst(c => c.ID_PRODUTO == produto.ID).Result;
+            if(validaItem != null)
+            {
+                await App.Current.MainPage.DisplayAlert("Atenção", "Item já foi adicionado", "OK");
+            }
+            else
+            {
+                await _carrinhoRepository.Insert(new CARRINHO()
+                {
+                    ID_PRODUTO = produto.ID
+                });
+            }
+            
+        }
+
+
 
         //async Task ExecuteLoadItemsCommand()
         //{
