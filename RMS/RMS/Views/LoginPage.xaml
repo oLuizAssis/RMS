@@ -23,7 +23,7 @@
 
                         <StackLayout Padding="0" Margin="15,10">
 
-                            <Frame BackgroundColor="Transparent" BorderColor="{Binding Cor_Borda}" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                            <Frame BackgroundColor="Transparent"  BorderColor="{Binding Cor_Borda}" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="https://img2.freepng.es/20190702/tl/kisspng-computer-icons-portable-network-graphics-avatar-tr-clip-directory-professional-transparent-amp-png-5d1bfa95e508d4.2980489715621147099381.jpg" Aspect="AspectFill" Margin="0"/>
@@ -37,15 +37,15 @@
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="https://www.pikpng.com/pngl/m/373-3736361_cadeado-png.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding Senha}" Placeholder="Password" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding Senha}" Placeholder="Senha" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
                             <StackLayout  Orientation="Horizontal">
                                 <CheckBox IsChecked="{Binding Lembrar_Login}" Color="Black" />
-                                <Label Text="Remember me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Lembrar senha" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
-                                <Label Text="Forgot Password" TextColor="Black" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Esqueci minha senha" TextColor="Black" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                             </StackLayout>
 
                             <Button Text="Logar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}"/>
@@ -53,9 +53,9 @@
                                 <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text=" Quase tudo para a plataforma .NET "  TextColor="DarkGray"/>
+                                            <Span Text="Cadastre-se clicando"  TextColor="DarkGray"/>
 
-                                            <Span Text="Sign Up" TextColor="Orange" FontAttributes="Bold" FontSize="Small" TextDecorations="Underline">
+                                            <Span Text=" aqui" TextColor="Orange" FontAttributes="Bold" FontSize="Small" TextDecorations="Underline">
                                                 <Span.GestureRecognizers>
                                                     <TapGestureRecognizer Command="{Binding CriarUsuarioCommand}"/>
                                                 </Span.GestureRecognizers>
@@ -69,7 +69,7 @@
                                 <Grid>
                                     <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
                                     <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
-                                        <Label Text="OR" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        <Label Text="Ou" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                                     </Frame>
                                 </Grid>
                             </StackLayout>
