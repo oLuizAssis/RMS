@@ -42,6 +42,7 @@ namespace RMS
             db.CreateTable<Note>();
             db.CreateTable<USUARIO>();
             db.CreateTable<PRODUTO>();
+            db.CreateTable<CARRINHO>();
         }
 
     }

@@ -16,7 +16,7 @@ namespace RMS.Views
         public CarrinhoPage()
         {
             InitializeComponent();
-            BindingContext = new CarrinhoViewModel();
+            this.BindingContext = new CarrinhoViewModel();
         }
     }
 }
