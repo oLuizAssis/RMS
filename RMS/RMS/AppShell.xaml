@@ -14,12 +14,12 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="White" />
+                <Setter Property="Shell.BackgroundColor" Value="Black" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="Black" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.TitleColor" Value="#ffa000" />
+                <Setter Property="Shell.DisabledColor" Value="red" />
                 <Setter Property="Shell.UnselectedColor" Value="#ffa000" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="LightGray" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="Violet" />
                 
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="Black"/>
