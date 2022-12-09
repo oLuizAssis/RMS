@@ -82,7 +82,7 @@
 
 
     <!--#region ITENS MENU LATERAL -->
-    <FlyoutItem Title="About" Icon="icon_about.png">
+    <FlyoutItem Title="Produtos" Icon="app.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Produtos" Icon="app.png">
