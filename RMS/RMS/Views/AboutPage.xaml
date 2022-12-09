@@ -14,13 +14,8 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
-                            <Frame HeightRequest="150" BackgroundColor="Black" Padding="0" Margin="0">
-                                <Image Source="logo.png" Aspect="AspectFill" Margin="0"/>
-                            </Frame>
-                        </StackLayout>
                         <StackLayout Padding="0" Margin="10,10,10,0" HorizontalOptions="FillAndExpand">
-                            <Frame  BackgroundColor="White" HeightRequest="200" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
+                            <Frame  BackgroundColor="White" HeightRequest="200" HasShadow="True" Padding="0" Margin="0" CornerRadius="15">
 
                                 <StackLayout>
                                     <StackLayout Margin="10">
