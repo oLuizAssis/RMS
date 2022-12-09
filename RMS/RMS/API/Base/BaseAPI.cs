@@ -15,7 +15,6 @@ namespace RMS.API.Base
     public class BaseAPI<T>
     {
 
-        #region Local
         private HttpClient _httpClient;
 
         public string End_Interno { get; set; }
@@ -23,9 +22,6 @@ namespace RMS.API.Base
 
         public string Controller { get; set; }
         public string Action { get; set; }
-        #endregion
-
-        #region Construtor
         public BaseAPI(string _Controller)
         {
             Controller = _Controller;
@@ -38,10 +34,8 @@ namespace RMS.API.Base
             };
 
         }
-        #endregion
 
 
-        #region UrlHelper
         public async Task<string> UrlHelper(string action, string metodo = "GET", HttpContent _httpContent = null)
         {
             try
@@ -76,9 +70,7 @@ namespace RMS.API.Base
             }
         }
 
-        #endregion
 
-        #region Get
 
         public async Task<T> Get(string action, HttpContent httpContent = null)
         {
@@ -123,9 +115,7 @@ namespace RMS.API.Base
             }
         }
 
-        #endregion
 
-        #region Post
         public static HttpContent GetHttpContent(object obj)
         {
             HttpContent httpContent;
