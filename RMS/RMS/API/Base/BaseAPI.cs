@@ -26,11 +26,9 @@ namespace RMS.API.Base
         #endregion
 
         #region Construtor
-        public BaseAPI(string _Controller, string _Empresa)
+        public BaseAPI(string _Controller)
         {
             Controller = _Controller;
-
-            End_Externo = vAmbiente + _Empresa + $"/{Controller}/";
 
 
             _httpClient = new HttpClient(new NativeMessageHandler())
