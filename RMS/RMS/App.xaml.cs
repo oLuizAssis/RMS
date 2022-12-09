@@ -40,6 +40,8 @@ namespace RMS
             var db = DependencyService.Get<ISQLite>().GetConnection();
 
             db.CreateTable<Note>();
+            db.CreateTable<USUARIO>();
+            db.CreateTable<PRODUTO>();
         }
 
     }

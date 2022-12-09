@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RMS.ViewModels;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +11,8 @@ namespace RMS.Views
         public AboutPage()
         {
             InitializeComponent();
+
+            this.BindingContext = new AboutViewModel();
         }
     }
 }

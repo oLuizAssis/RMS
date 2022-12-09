@@ -2,51 +2,46 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RMS.Views.AboutPage"
-             xmlns:vm="clr-namespace:RMS.ViewModels"
-             Title="{Binding Title}">
-    
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
-    
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+                     Title="{Binding Title}"
+             xmlns:local="clr-namespace:RMS.ViewModels"  
+             xmlns:model="clr-namespace:RMS.Models"  
+             x:Name="BrowseItemsPage">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
-            </StackLayout>
-        </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        Command="{Binding LoginCommand}"
-                        BackgroundColor="{StaticResource Primary}"
-                        TextColor="White" />
-            </StackLayout>
-        </ScrollView>
-    </Grid>
+    <StackLayout BackgroundColor="Black">
+        <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Produtos}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                            <Frame HeightRequest="150" BackgroundColor="Black" Padding="0" Margin="0">
+                                <Image Source="logo.png" Aspect="AspectFill" Margin="0"/>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Padding="0" Margin="10,10,10,0" HorizontalOptions="FillAndExpand">
+                            <Frame  BackgroundColor="White" HeightRequest="200" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
+
+                                <StackLayout>
+                                    <StackLayout Margin="10">
+                                        <Label Text="{Binding TITULO}" TextColor="Black" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Margin="0,25,0,0" Padding="0">
+                                        <Grid>
+                                            <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                                <Label Text="OR" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                            </Frame>
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
 
 </ContentPage>
