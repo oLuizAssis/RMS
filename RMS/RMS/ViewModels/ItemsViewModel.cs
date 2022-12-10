@@ -17,6 +17,7 @@ namespace RMS.ViewModels
         public Command AddItemCommand { get; }
         public Command<Item> ItemTapped { get; }
 
+        
         public ItemsViewModel()
         {
             Title = "Produtos";

@@ -11,74 +11,96 @@ using RMS.Data.Interfaces;
 using System.Collections.Generic;
 using Acr.UserDialogs;
 using RMS.Services;
+using RMS.API;
+using System.Linq;
 
 namespace RMS.ViewModels
-{   
+{
     public class AboutViewModel : BaseViewModel
     {
 
         private IRepository<PRODUTO> _ProdutoRepository;
         private IRepository<CARRINHO> _carrinhoRepository;
-        public PRODUTO SelectedItem 
+        ProdutoService _produtoService = new ProdutoService();
+
+
+        public PRODUTO SelectedItem
         {
             get;
             set;
         }
+        private string itemId;
 
-        public ObservableCollection<PRODUTO> Produtos { get; }
+        public string ItemId
+        {
+            get
+            {
+                return itemId;
+            }
+            set
+            {
+                itemId = value;
+                CarregarProdutos();
+            }
+        }
+
+        public List<PRODUTO> _listaProdutos { get; set; }
+
+        private ObservableCollection<PRODUTO> _produtos { get; set; }
+        public ObservableCollection<PRODUTO> Produtos
+        {
+            get {
+                Task.Run(async () => await CarregarProdutos()).Wait();
+                    return _produtos;
+            }
+        }
+
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
         public Command<PRODUTO> ItemTappedCommand { get; }
 
-    public AboutViewModel()
+        public AboutViewModel()
         {
             ItemTappedCommand = new Command<PRODUTO>(async (item) => await OnTapped(item));
             _ProdutoRepository = new Repository<PRODUTO>();
             _carrinhoRepository = new Repository<CARRINHO>();
             Title = "Produtos";
-            var teste = InserirProdutos();
-            var produtos = _ProdutoRepository.Get().Result;
-            Produtos = new ObservableCollection<PRODUTO>(produtos);
+
+             Task.Run(async () => await CarregarProdutos()).Wait();
         }
 
-        public int InserirProdutos()
+        public async Task CarregarProdutos()
         {
+            _listaProdutos = await new ProdutoAPI().ObterProdutos();
 
-            var produtos = new List<PRODUTO>();
-            var item = new PRODUTO()
-            {
-                DESCRIÇÃO = "teste",
-                TITULO = "luiz viado",
-            };
+            _produtos = new ObservableCollection<PRODUTO>(_listaProdutos);
 
-            var item2 = new PRODUTO()
-            {
-                DESCRIÇÃO = "teste2",
-                TITULO = "test5",
-            };
-
-            produtos.Add(item);
-            produtos.Add(item2);
-            _ProdutoRepository.InsertList(produtos);
-
-            return 1;
         }
 
         public async Task OnTapped(PRODUTO produto)
         {
             var validaItem = _carrinhoRepository.GetFirst(c => c.ID_PRODUTO == produto.ID).Result;
-            if(validaItem != null)
+
+            var descricao = _listaProdutos.Where(c => c.ID == produto.ID).Select(c => c.DESCRICAO).FirstOrDefault();
+
+            if (validaItem != null)
             {
-                await App.Current.MainPage.DisplayAlert("Atenção", "Item já foi adicionado", "OK");
+               await App.Current.MainPage.DisplayAlert("Atenção", $"Item {descricao} já foi adicionado", "OK");
             }
             else
             {
-                await _carrinhoRepository.Insert(new CARRINHO()
+               var valida =  await App.Current.MainPage.DisplayAlert("Atenção", $"Deseja adicionar o item {descricao} ao carrinho", "Sim", "Não");
+
+                if (valida)
                 {
-                    ID_PRODUTO = produto.ID
-                });
+                    await _carrinhoRepository.Insert(new CARRINHO()
+                    {
+                        ID_PRODUTO = produto.ID
+                    });
+                }
+                
             }
-            
+
         }
 
 

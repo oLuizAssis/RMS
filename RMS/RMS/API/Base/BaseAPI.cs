@@ -26,6 +26,7 @@ namespace RMS.API.Base
         {
             Controller = _Controller;
 
+            End_Externo = "http://192.168.2.46:45455/" + Controller;
 
             _httpClient = new HttpClient(new NativeMessageHandler())
             {

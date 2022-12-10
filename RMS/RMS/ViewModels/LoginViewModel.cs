@@ -6,6 +6,7 @@ using Acr.UserDialogs;
 using Xamarin.Essentials;
 using System.Threading.Tasks;
 using RMS.Views.Login;
+using RMS.API;
 
 namespace RMS.ViewModels
 {
@@ -52,6 +53,7 @@ namespace RMS.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
+
             var retorno = await _LoginService.Logar(Email, Senha);
 
             if (retorno)

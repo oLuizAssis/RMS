@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace RMS.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : Shell, INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
@@ -50,5 +50,6 @@ namespace RMS.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+
     }
 }
