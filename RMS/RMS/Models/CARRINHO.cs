@@ -10,5 +10,6 @@ namespace RMS.Models
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public int ID_PRODUTO { get; set; }
+        public string NOME_PRODUTO { get; set; }
     }
 }

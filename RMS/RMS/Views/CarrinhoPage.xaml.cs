@@ -13,10 +13,19 @@ namespace RMS.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CarrinhoPage : ContentPage
     {
+        CarrinhoViewModel _viewModel;
+
         public CarrinhoPage()
         {
             InitializeComponent();
-            this.BindingContext = new CarrinhoViewModel();
+
+            BindingContext = _viewModel = new CarrinhoViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
         }
     }
 }

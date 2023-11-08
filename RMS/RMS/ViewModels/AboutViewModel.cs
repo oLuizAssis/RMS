@@ -23,7 +23,6 @@ namespace RMS.ViewModels
         private IRepository<CARRINHO> _carrinhoRepository;
         ProdutoService _produtoService = new ProdutoService();
 
-
         public PRODUTO SelectedItem
         {
             get;
@@ -77,6 +76,8 @@ namespace RMS.ViewModels
 
         }
 
+
+
         public async Task OnTapped(PRODUTO produto)
         {
             var validaItem = _carrinhoRepository.GetFirst(c => c.ID_PRODUTO == produto.ID).Result;
@@ -90,6 +91,38 @@ namespace RMS.ViewModels
             else
             {
                var valida =  await App.Current.MainPage.DisplayAlert("Atenção", $"Deseja adicionar o item {descricao} ao carrinho", "Sim", "Não");
+
+                if (valida)
+                {
+                    await _carrinhoRepository.Insert(new CARRINHO()
+                    {
+                        ID_PRODUTO = produto.ID,
+                        NOME_PRODUTO = produto.DESCRICAO
+                    });
+                }
+                
+            }
+
+        }
+
+        // Luiz - Carrinho icone
+        
+        public async Task OnTapped(CARRINHO produto)
+        {
+
+            // MESMO MÉTODO PARA CONTABILIZARR O CARRINHO?
+
+            var validaItem = _carrinhoRepository.GetFirst(c => c.ID_PRODUTO == produto.ID).Result;
+
+            var descricao = _listaProdutos.Where(c => c.ID == produto.ID).Select(c => c.DESCRICAO).FirstOrDefault();
+
+            if (validaItem != null)
+            {
+               await App.Current.MainPage.DisplayAlert("Atenção", $"Item {descricao} já foi adicionado", "OK");
+            }
+            else
+            {
+               var valida =  await App.Current.MainPage.DisplayAlert("Atenção", $"Deseja excluir o item {descricao} do carrinho", "Sim", "Não");
 
                 if (valida)
                 {

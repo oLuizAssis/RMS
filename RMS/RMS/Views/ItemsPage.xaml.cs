@@ -27,6 +27,8 @@ namespace RMS.Views
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+
+            BindingContext = _viewModel = new ItemsViewModel();
         }
     }
 }

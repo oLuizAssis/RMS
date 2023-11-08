@@ -15,8 +15,8 @@
                             <Frame BorderColor="Black" Padding="5">
                                 <StackLayout Orientation="Horizontal" Spacing="15">
                                     <Image x:Name="imagemProduto" Source="{Binding Foto}" Aspect="Fill" HeightRequest="50" WidthRequest="50"   />
-                                    <Label Text="{Binding Descricao}"
-                                           FontSize="Large"
+                                    <Label Text="{Binding NOME_PRODUTO}"
+                                           FontSize="Micro"
                                            VerticalOptions="Center" />          
                                 </StackLayout>
                             </Frame>

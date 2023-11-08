@@ -8,6 +8,9 @@ using System.IO;
 using RMS.Data.Interfaces;
 using RMS.Models;
 
+
+//DbContext?
+
 namespace RMS
 {
     public partial class App : Application
@@ -37,12 +40,17 @@ namespace RMS
 
         public void CreateAllTables()
         {
+
+            // atualizar as models
+
             var db = DependencyService.Get<ISQLite>().GetConnection();
 
             db.CreateTable<Note>();
             db.CreateTable<USUARIO>();
             db.CreateTable<PRODUTO>();
             db.CreateTable<CARRINHO>();
+
+
         }
 
     }
