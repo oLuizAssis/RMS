@@ -13,6 +13,7 @@ using Acr.UserDialogs;
 using RMS.Services;
 using RMS.API;
 using System.Linq;
+using Rg.Plugins.Popup.Services;
 
 namespace RMS.ViewModels
 {
@@ -80,13 +81,26 @@ namespace RMS.ViewModels
 
         public async Task OnTapped(PRODUTO produto)
         {
-            var validaItem = _carrinhoRepository.GetFirst(c => c.ID_PRODUTO == produto.ID).Result;
+
+            var itemCarrinho = await _carrinhoRepository.GetFirst(c => c.ID_PRODUTO == produto.ID);
 
             var descricao = _listaProdutos.Where(c => c.ID == produto.ID).Select(c => c.DESCRICAO).FirstOrDefault();
 
-            if (validaItem != null)
+            if (itemCarrinho != null)
             {
-               await App.Current.MainPage.DisplayAlert("Atenção", $"Item {descricao} já foi adicionado", "OK");
+                try
+                {
+                    var promptPage = new ModalSeletorProduto(itemCarrinho, produto.ESTOQUE);
+                    //await Shell.Current.Navigation.PushModalAsync(new NavigationPage(promptPage));
+                    await PopupNavigation.Instance.PushAsync(promptPage);
+                }
+                catch (Exception ex)
+                {
+                    return;
+                }
+
+                
+
             }
             else
             {
@@ -97,7 +111,12 @@ namespace RMS.ViewModels
                     await _carrinhoRepository.Insert(new CARRINHO()
                     {
                         ID_PRODUTO = produto.ID,
-                        NOME_PRODUTO = produto.DESCRICAO
+                        FOTO = produto.FOTO,
+                        NOME_PRODUTO = produto.DESCRICAO,
+                        VALOR_PRODUTO = produto.VALORPRODUTO,
+                        VALOR_TOTAL = produto.VALORPRODUTO,
+                        QUANTIDADE = 1
+
                     });
                 }
                 

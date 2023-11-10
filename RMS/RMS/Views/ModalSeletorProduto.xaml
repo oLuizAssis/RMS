@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="RMS.Views.ModalSeletorProduto"
+             x:Name="stackStepper"   >
+
+
+    <Grid BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="300" HeightRequest="300">
+        <Frame CornerRadius="30">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
+                <Label Text="Detalhes do Item" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,0,0,10" />
+
+                <!-- Seletor de quantidade usando um Stepper -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                    <Label Text="Quantidade: " VerticalOptions="Center" Margin="0,0,10,0" TextColor="Black"/>
+                    <Stepper x:Name="quantityStepper" Minimum="0" Maximum="10" Value="0" Increment="1" VerticalOptions="Center">
+                    </Stepper>
+                    <Label Text="{Binding Value, Source={x:Reference quantityStepper}}" VerticalOptions="Center" Margin="10,0,0,0" TextColor="Black"/>
+                </StackLayout>
+
+                <!-- Exibição dinâmica da quantidade -->
+                <Label Text="{Binding Value, Source={x:Reference quantityStepper}}" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,20,0,0" TextColor="Black"/>
+
+                <!-- Botão para adicionar ao carrinho -->
+                <Button Text="Adicionar ao Carrinho" Clicked="AdicionarAoCarrinho" HorizontalOptions="Center" Margin="0,20,0,0" />
+            </StackLayout>
+        </Frame>
+    </Grid>
+</pages:PopupPage>

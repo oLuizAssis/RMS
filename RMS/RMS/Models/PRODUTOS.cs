@@ -14,7 +14,7 @@ namespace RMS.Models
         public DateTime DATAENTRADA { get; set; }
         public DateTime DATASAIDA { get; set; }
         public int ESTOQUE { get; set; }
-        public decimal VALORPRODUTO { get; set; }
+        public double VALORPRODUTO { get; set; }
         public int STATUS { get; set; }
         public int IDCATEGORIA { get; set; }
         public string FOTO { get; set; }

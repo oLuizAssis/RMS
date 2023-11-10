@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using System.IO;
 using RMS.Data.Interfaces;
 using RMS.Models;
+using Rg.Plugins.Popup;
 
 
 //DbContext?
@@ -23,7 +24,9 @@ namespace RMS
             CreateAllTables();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            new AppShell();
+
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
