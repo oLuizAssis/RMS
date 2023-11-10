@@ -7,6 +7,9 @@ using Xamarin.Essentials;
 using System.Threading.Tasks;
 using RMS.Views.Login;
 using RMS.API;
+using System.ComponentModel;
+using System.Diagnostics;
+using RMS.Models;
 
 namespace RMS.ViewModels
 {
@@ -53,23 +56,31 @@ namespace RMS.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
+            var retorno = await new UsuarioAPI().ObterProdutos(Email);
 
-            var retorno = await _LoginService.Logar(Email, Senha);
+            ValidaDadosUsuario(retorno);
+        }
 
-            if (retorno)
-                Application.Current.MainPage = new AppShell();
+        private async void ValidaDadosUsuario(USUARIO usuario)
+        {
+            if (usuario == null)
+            {
+                await App.Current.MainPage.DisplayAlert("Atenção", "Email não cadastrado", "OK");
+            }
             else
             {
-                Cor_Borda = Color.Red;
-                await App.Current.MainPage.DisplayAlert("Atenção", "Email ou Senha Incorretos", "OK");
+                if(usuario.SENHA == Senha)
+                    Application.Current.MainPage = new AppShell();
+                else
+                    await App.Current.MainPage.DisplayAlert("Atenção", "Senha incorreta", "OK");
             }
-
         }
 
         private async void CriarUsuarioClick()
         {
             await Shell.Current.GoToAsync(nameof(CriarLoginPage));
         }
+
 
         public async Task EnviaSms()
         {
