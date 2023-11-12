@@ -142,4 +142,7 @@
       <Name>RMS</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sair.png" />
+  </ItemGroup>
 </Project>

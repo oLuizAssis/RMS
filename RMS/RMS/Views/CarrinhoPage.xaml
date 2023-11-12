@@ -31,7 +31,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <StackLayout Grid.Row="0" Grid.Column="0" >
-                                                <Frame HeightRequest="180" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                                <Frame HeightRequest="60" WidthRequest="15" CornerRadius="30" Padding="0" Margin="5">
                                                     <Image Source="{Binding FOTO}" Aspect="AspectFill" Margin="0" />
                                                 </Frame>
                                             </StackLayout>

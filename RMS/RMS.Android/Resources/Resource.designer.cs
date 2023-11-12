@@ -14,7 +14,7 @@ namespace RMS.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.2.1.111")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.1.0.5")]
 	public partial class Resource
 	{
 		
@@ -25688,28 +25688,31 @@ namespace RMS.Droid
 			public const int roundedbgdark = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int shopping_basket = 2131165379;
+			public const int sair = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int shopping_cart = 2131165380;
+			public const int shopping_basket = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int shopping_cart1 = 2131165381;
+			public const int shopping_cart = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int test_custom_background = 2131165382;
+			public const int shopping_cart1 = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int tooltip_frame_dark = 2131165383;
+			public const int test_custom_background = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int tooltip_frame_light = 2131165384;
+			public const int tooltip_frame_dark = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int WildKat = 2131165385;
+			public const int tooltip_frame_light = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int xamarin_logo = 2131165386;
+			public const int WildKat = 2131165386;
+			
+			// aapt resource value: 0x7F0700CB
+			public const int xamarin_logo = 2131165387;
 			
 			static Drawable()
 			{
