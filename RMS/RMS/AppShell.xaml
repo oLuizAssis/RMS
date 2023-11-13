@@ -85,7 +85,7 @@
     <FlyoutItem Title="Produtos" Icon="app.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Produtos" Icon="home.png">
+    <FlyoutItem Title="Adicionar Produtos" Icon="home.png">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Carrinho" Icon="shopping_cart1.png">
