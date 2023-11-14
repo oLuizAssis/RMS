@@ -6,13 +6,22 @@ using Xamarin.Forms.Xaml;
 
 namespace RMS.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AboutPage : ContentPage
     {
+        AboutViewModel _viewModel;
+
         public AboutPage()
         {
             InitializeComponent();
 
-            this.BindingContext = new AboutViewModel();
+            BindingContext = _viewModel = new AboutViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
         }
     }
 }

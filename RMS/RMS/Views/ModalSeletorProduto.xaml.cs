@@ -24,19 +24,11 @@ namespace RMS.Views
         public ModalSeletorProduto(CARRINHO carrinho, int quantidadeEstoque)
         {
             InitializeComponent();
+         
             _carrinhoRepository = new Repository<CARRINHO>();
-
-            quantityStepper = new Stepper
-            {
-                Minimum = 0,
-                Maximum = quantidadeEstoque,
-                Value = carrinho.QUANTIDADE,
-                Increment = 1,
-                VerticalOptions = LayoutOptions.Center,
-                WidthRequest = 120, // Defina o tamanho desejado
-            };
-
             _carrinho = carrinho;
+
+            MontarComponenteStepper(quantidadeEstoque);
 
         }
 
@@ -57,6 +49,12 @@ namespace RMS.Views
             }
 
             await PopupNavigation.Instance.PopAsync();
+        }
+
+        private void MontarComponenteStepper(int quantidadeEstoque)
+        {
+            quantityStepper.Value = _carrinho.QUANTIDADE;
+            quantityStepper.Maximum = quantidadeEstoque;
         }
 
     }

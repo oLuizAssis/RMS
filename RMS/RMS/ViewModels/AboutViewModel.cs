@@ -40,19 +40,17 @@ namespace RMS.ViewModels
             set
             {
                 itemId = value;
-                CarregarProdutos();
             }
         }
 
         public List<PRODUTO> _listaProdutos { get; set; }
 
-        private ObservableCollection<PRODUTO> _produtos { get; set; }
+        private ObservableCollection<PRODUTO> _produtos;
         public ObservableCollection<PRODUTO> Produtos
         {
-            get {
-                Task.Run(async () => await CarregarProdutos()).Wait();
-                    return _produtos;
-            }
+            get { return _produtos; }
+
+            set { SetProperty(ref _produtos, value); }
         }
 
         public Command LoadItemsCommand { get; }
@@ -62,19 +60,27 @@ namespace RMS.ViewModels
         public AboutViewModel()
         {
             ItemTappedCommand = new Command<PRODUTO>(async (item) => await OnTapped(item));
+            _produtos = new ObservableCollection<PRODUTO>();
             _ProdutoRepository = new Repository<PRODUTO>();
             _carrinhoRepository = new Repository<CARRINHO>();
             Title = "Produtos";
+        }
 
-             Task.Run(async () => await CarregarProdutos()).Wait();
+        public void OnAppearing()
+        {
+            Task.Run(async () => await CarregarProdutos()).Wait();
         }
 
         public async Task CarregarProdutos()
         {
+            _produtos.Clear();
+
             _listaProdutos = await new ProdutoAPI().ObterProdutos();
 
-            _produtos = new ObservableCollection<PRODUTO>(_listaProdutos);
-
+            foreach (var item in _listaProdutos)
+            {
+                _produtos.Add(item);
+            }
         }
 
 

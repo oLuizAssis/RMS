@@ -69,7 +69,7 @@ namespace RMS.ViewModels
             }
             else
             {
-                if(usuario.SENHA == Senha)
+                if (usuario.SENHA == Senha)
                     Application.Current.MainPage = new AppShell();
                 else
                     await App.Current.MainPage.DisplayAlert("Atenção", "Senha incorreta", "OK");
@@ -81,24 +81,5 @@ namespace RMS.ViewModels
             await Shell.Current.GoToAsync(nameof(CriarLoginPage));
         }
 
-
-        public async Task EnviaSms()
-        {
-
-            var duration = TimeSpan.FromSeconds(1);
-            Vibration.Vibrate(duration);
-
-            var level = Battery.ChargeLevel;
-            var location = await Geolocation.GetLastKnownLocationAsync();
-            var state = Battery.State;
-
-            var screenshot = await Screenshot.CaptureAsync();
-            var stream = await screenshot.OpenReadAsync();
-
-            var teste = ImageSource.FromStream(() => stream);
-
-            var mensagem = new SmsMessage("gui gay", "67984486415");
-            await Sms.ComposeAsync(mensagem);
-        }
     }
 }

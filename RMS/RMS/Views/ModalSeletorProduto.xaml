@@ -6,24 +6,19 @@
              x:Name="stackStepper"   >
 
 
-    <Grid BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="300" HeightRequest="300">
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="300" HeightRequest="300">
         <Frame CornerRadius="30">
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
-                <Label Text="Detalhes do Item" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,0,0,10" />
+                <Label Text="Detalhes do Item" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,0,0,10"  TextColor="Black"/>
 
                 <!-- Seletor de quantidade usando um Stepper -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
-                    <Label Text="Quantidade: " VerticalOptions="Center" Margin="0,0,10,0" TextColor="Black"/>
-                    <Stepper x:Name="quantityStepper" Minimum="0" Maximum="10" Value="0" Increment="1" VerticalOptions="Center">
-                    </Stepper>
+                    <Stepper x:Name="quantityStepper" Minimum="0" Maximum="10" Value="0" Increment="1" VerticalOptions="Center"/>
                     <Label Text="{Binding Value, Source={x:Reference quantityStepper}}" VerticalOptions="Center" Margin="10,0,0,0" TextColor="Black"/>
                 </StackLayout>
 
-                <!-- Exibição dinâmica da quantidade -->
-                <Label Text="{Binding Value, Source={x:Reference quantityStepper}}" HorizontalOptions="Center" FontAttributes="Bold" Margin="0,20,0,0" TextColor="Black"/>
-
                 <!-- Botão para adicionar ao carrinho -->
-                <Button Text="Adicionar ao Carrinho" Clicked="AdicionarAoCarrinho" HorizontalOptions="Center" Margin="0,20,0,0" />
+                <Button Text="Adicionar ao Carrinho" Clicked="AdicionarAoCarrinho" HorizontalOptions="Center" Margin="0,20,0,0" BackgroundColor="#ffa000" TextColor="White" CornerRadius="30"/>
             </StackLayout>
         </Frame>
     </Grid>

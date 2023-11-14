@@ -88,8 +88,11 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button Text="Esvaziar Carrinho" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LimparCarinhoCommad}"/>
     </StackLayout>
 </ContentPage>
+
 
 
 

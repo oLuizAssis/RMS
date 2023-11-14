@@ -21,11 +21,15 @@ namespace RMS.ViewModels
             set { SetProperty(ref _produtosCarrinhos, value); }
         }
 
+
         private IRepository<CARRINHO> _carrinhoRepository;
 
-        // construtor
+        public Command LimparCarinhoCommad { get; }
+
         public CarrinhoViewModel()
         {
+            LimparCarinhoCommad = new Command(LimparCarinho);
+
             _produtosCarrinhos = new ObservableCollection<CARRINHO>();
         }
 
@@ -42,6 +46,12 @@ namespace RMS.ViewModels
                 _produtosCarrinhos.Add(item);
             }
 
+        }
+
+        public void LimparCarinho()
+        {
+            _produtosCarrinhos.Clear();
+            _carrinhoRepository.DeleteAll();
         }
     }
 }
