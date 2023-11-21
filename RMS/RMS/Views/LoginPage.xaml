@@ -36,7 +36,7 @@
                             <Frame BackgroundColor="Transparent" BorderColor="{Binding Cor_Borda}" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="https://www.pikpng.com/pngl/m/373-3736361_cadeado-png.png" Aspect="AspectFill" Margin="0"/>
+                                        <Image Source="chave.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
                                     <Entry Text="{Binding Senha}" Placeholder="Senha" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>

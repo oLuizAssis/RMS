@@ -11,6 +11,7 @@ namespace RMS.API
     {
         public UsuarioAPI() : base("Usuario")
         {
+
         }
 
         public async Task<USUARIO> ObterProdutos(string email)
