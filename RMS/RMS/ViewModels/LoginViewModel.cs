@@ -78,7 +78,17 @@ namespace RMS.ViewModels
 
         private async void CriarUsuarioClick()
         {
-            await Shell.Current.GoToAsync(nameof(CriarLoginPage));
+            try
+            {
+                await Shell.Current.GoToAsync(nameof(CriarLoginPage));
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
         }
 
     }
