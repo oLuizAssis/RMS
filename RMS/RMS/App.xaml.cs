@@ -8,6 +8,7 @@ using System.IO;
 using RMS.Data.Interfaces;
 using RMS.Models;
 using Rg.Plugins.Popup;
+using RMS.Views.Login;
 
 
 //DbContext?
@@ -24,7 +25,6 @@ namespace RMS
             CreateAllTables();
 
             DependencyService.Register<MockDataStore>();
-            new AppShell();
 
             MainPage = new LoginPage();
         }

@@ -69,8 +69,8 @@ namespace RMS.ViewModels
             }
             else
             {
-                if (usuario.SENHA == Senha)
-                    Application.Current.MainPage = new AppShell();
+                if (usuario.SENHA == Senha) 
+                    Application.Current.MainPage = new AppShell(true);
                 else
                     await App.Current.MainPage.DisplayAlert("Atenção", "Senha incorreta", "OK");
             }
@@ -80,8 +80,7 @@ namespace RMS.ViewModels
         {
             try
             {
-                await Shell.Current.GoToAsync(nameof(CriarLoginPage));
-
+                Application.Current.MainPage = new AppShell(false);
             }
             catch (Exception ex)
             {

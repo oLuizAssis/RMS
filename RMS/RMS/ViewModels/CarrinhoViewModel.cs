@@ -49,6 +49,7 @@ namespace RMS.ViewModels
         }
 
         public void LimparCarinho()
+
         {
             _produtosCarrinhos.Clear();
             _carrinhoRepository.DeleteAll();
