@@ -13,5 +13,6 @@ namespace RMS.Models
         public string EMAIL { get; set; }
         public string SENHA { get; set; }
         public string CPF { get; set; }
+        public string PERFIL { get; set; }
     }
 }

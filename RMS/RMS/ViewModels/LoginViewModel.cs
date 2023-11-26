@@ -10,6 +10,8 @@ using RMS.API;
 using System.ComponentModel;
 using System.Diagnostics;
 using RMS.Models;
+using System.Globalization;
+using RMS.Data;
 
 namespace RMS.ViewModels
 {
@@ -38,7 +40,7 @@ namespace RMS.ViewModels
         private bool _lembrar_Login;
         public bool Lembrar_Login { get { return _lembrar_Login; } set { SetProperty(ref _lembrar_Login, value); } }
 
-
+        USUARIO _usuarioModel;
 
         public LoginViewModel()
         {
@@ -53,39 +55,81 @@ namespace RMS.ViewModels
             LoginCommand = new Command(OnLoginClicked);
             CriarUsuarioCommand = new Command(CriarUsuarioClick);
         }
+        public void OnAppearing()
+        {
+            InserirCredenciaisNosCamposAutomaticamentes();
+        }
+
 
         private async void OnLoginClicked(object obj)
         {
-            var retorno = await new UsuarioAPI().ObterProdutos(Email);
+            _usuarioModel = await new UsuarioAPI().ObterUsuario(Email);
 
-            ValidaDadosUsuario(retorno);
+            ValidaLogin();
         }
 
-        private async void ValidaDadosUsuario(USUARIO usuario)
+        private async void ValidaLogin()
         {
-            if (usuario == null)
+            if (_usuarioModel == null)
             {
                 await App.Current.MainPage.DisplayAlert("Atenção", "Email não cadastrado", "OK");
             }
             else
             {
-                if (usuario.SENHA == Senha) 
-                    Application.Current.MainPage = new AppShell(true);
+                if (_usuarioModel.SENHA == Senha)
+                {
+                    ValidarLoginAutomatico();
+
+                    Application.Current.MainPage = new AppShell();
+                }
                 else
                     await App.Current.MainPage.DisplayAlert("Atenção", "Senha incorreta", "OK");
             }
         }
 
-        private async void CriarUsuarioClick()
+        private void CriarUsuarioClick()
         {
-            try
-            {
-                Application.Current.MainPage = new AppShell(false);
-            }
-            catch (Exception ex)
-            {
+            Application.Current.MainPage = new CriarLoginPage();
+        }
 
-                throw;
+        public void ValidarLoginAutomatico()
+        {
+            SecureStorage.SetAsync("PerfilUsuario", _usuarioModel.PERFIL);
+
+            if (Lembrar_Login)
+                CadastrarCredenciaisLogin();
+            else
+                RemoverCredenciaisLogin();
+        }
+
+        public void CadastrarCredenciaisLogin()
+        {
+            if (ValidarCredenciais())
+            {
+                SecureStorage.SetAsync("Email", _usuarioModel.EMAIL);
+            }
+
+        }
+
+        public void RemoverCredenciaisLogin()
+        {
+            if (!ValidarCredenciais())
+            {
+                SecureStorage.Remove("Email");
+            }
+        }
+
+        private bool ValidarCredenciais()
+        {
+            return string.IsNullOrEmpty(SecureStorage.GetAsync("Email").Result);
+        }
+
+        private void InserirCredenciaisNosCamposAutomaticamentes()
+        {
+            if (!ValidarCredenciais())
+            {
+                Email = SecureStorage.GetAsync("Email").Result;
+                Lembrar_Login = true;
             }
 
         }

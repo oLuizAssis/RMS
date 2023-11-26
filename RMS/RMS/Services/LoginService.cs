@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace RMS.Services
 {
@@ -36,7 +37,7 @@ namespace RMS.Services
         {
             try
             {
-                var usuarios =  await _UsuarioRepository.Get();
+                var usuarios = await _UsuarioRepository.Get();
 
                 return usuarios;
             }
@@ -50,7 +51,7 @@ namespace RMS.Services
         {
             try
             {
-                var usuarios = await _UsuarioRepository.Get(c=> c.EMAIL == email && c.SENHA == senha);
+                var usuarios = await _UsuarioRepository.Get(c => c.EMAIL == email && c.SENHA == senha);
 
                 return usuarios.Count() > 0 ? true : false;
             }
@@ -59,5 +60,6 @@ namespace RMS.Services
                 return false;
             }
         }
+
     }
 }
