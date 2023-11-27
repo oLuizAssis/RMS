@@ -14,7 +14,7 @@ namespace RMS.API
 
         }
 
-        public async Task<USUARIO> ObterProdutos(string email)
+        public async Task<USUARIO> ObterUsuario(string email)
         => await Get($"/ObterUsuario?email={email}");
 
     }

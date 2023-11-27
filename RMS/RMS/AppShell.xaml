@@ -85,14 +85,17 @@
     <FlyoutItem Title="Produtos" Icon="app.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Adicionar Produtos" Icon="home.png">
+    <FlyoutItem Title="Adicionar Produtos" Icon="home.png" Route="ItemsPage">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Carrinho" Icon="shopping_cart1.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:CarrinhoPage}" />
+        <ShellContent Route="CarrinhoPage" ContentTemplate="{DataTemplate local:CarrinhoPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Cadastrar Funcionário" Icon="shopping_cart1.png" Route="CadastraFuncionarioPage">
+        <ShellContent Route="CadastraFuncionarioPage" ContentTemplate="{DataTemplate local:CadastraFuncionarioPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Sair" Icon="sair.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </FlyoutItem>
     <!--#endregion-->
    

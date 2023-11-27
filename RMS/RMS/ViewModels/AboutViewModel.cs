@@ -14,6 +14,7 @@ using RMS.Services;
 using RMS.API;
 using System.Linq;
 using Rg.Plugins.Popup.Services;
+using Xamarin.Essentials;
 
 namespace RMS.ViewModels
 {
@@ -64,6 +65,8 @@ namespace RMS.ViewModels
             _ProdutoRepository = new Repository<PRODUTO>();
             _carrinhoRepository = new Repository<CARRINHO>();
             Title = "Produtos";
+
+            MontarMenuLateral();
         }
 
         public void OnAppearing()
@@ -216,5 +219,19 @@ namespace RMS.ViewModels
         //    await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
         //}       
 
+
+        private void MontarMenuLateral()
+        {
+            var listRotas = new List<string> { "Adicionar Produtos", "Cadastrar Funcionário" };
+            var shellItem = Shell.Current.Items.Where(item => listRotas.Contains(item.Title)).ToList();
+
+            if (shellItem != null)
+            {
+                if (SecureStorage.GetAsync("PerfilUsuario").Result == "Vendedor")
+                    shellItem.ForEach(x => x.IsVisible = true);
+                else
+                    shellItem.ForEach(x => x.IsVisible = false);
+            }
+        }
     }
 }

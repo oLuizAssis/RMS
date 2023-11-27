@@ -13,7 +13,7 @@ namespace RMS.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CarrinhoPage : ContentPage
     {
-        CarrinhoViewModel _viewModel;
+        CarrinhoViewModel _viewModel;   
 
         public CarrinhoPage()
         {

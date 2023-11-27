@@ -44,7 +44,7 @@
 
                             <StackLayout  Padding="0" Margin="12" Orientation="Horizontal">
                                 <CheckBox IsChecked="{Binding Lembrar_Login}" Color="Black" />
-                                <Label Text="Lembrar senha" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                                <Label Text="Lembrar Email" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
 
                                 <Label Text="Esqueci minha senha" TextColor="Black" FontAttributes="Bold" HorizontalOptions="EndAndExpand" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
                             </StackLayout>
