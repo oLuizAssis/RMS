@@ -10,29 +10,32 @@ using Xamarin.Forms;
 
 namespace RMS.ViewModels
 {
-    public class CadastraFuncionarioModel : BaseViewModel
+    public class CriarLoginViewModel : BaseViewModel
     {
 
         public Command LoginCommand { get; }
 
 
         private string _nome;
-        public string Nome { get { return _nome; } set { SetProperty(ref _nome, value); } }
+        public string NomeFuncionario { get { return _nome; } set { SetProperty(ref _nome, value); } }
 
         private string _Cpf;
-        public string Cpf { get { return _Cpf; } set { SetProperty(ref _Cpf, value); } }
+        public string CpfFuncionario { get { return _Cpf; } set { SetProperty(ref _Cpf, value); } }
         
         private string _dtnascimento;
-        public string DtNascimento { get { return _dtnascimento; } set { SetProperty(ref _dtnascimento, value); } }
+        public string DtNascFuncionario { get { return _dtnascimento; } set { SetProperty(ref _dtnascimento, value); } }
 
+        private string _cargo;
+        public string Cargo { get { return _cargo; } set { SetProperty(ref _cargo, value); } }
+        
         private string _email;
-        public string Email { get { return _email; } set { SetProperty(ref _email, value); } }
+        public string EmailFuncionario { get { return _email; } set { SetProperty(ref _email, value); } }
 
         private string _endereco;
-        public string Endereco { get { return _endereco; } set { SetProperty(ref _endereco, value); } }
+        public string EnderecoFuncionario { get { return _endereco; } set { SetProperty(ref _endereco, value); } }
 
         private string _contato;
-        public string Contato { get { return _contato; } set { SetProperty(ref _contato, value); } }
+        public string ContatoFuncionario { get { return _contato; } set { SetProperty(ref _contato, value); } }
 
         private string _senha;
         public string Senha { get { return _senha; } set { SetProperty(ref _senha, value); } }

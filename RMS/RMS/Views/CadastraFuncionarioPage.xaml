@@ -26,7 +26,7 @@
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding Nome}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding NomeFuncionario}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -35,31 +35,7 @@
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding Senha}" Placeholder="CPF" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-
-                                    <!--MaxLength="11" Keyboard="Numeric"/>
-                                    <Entry.Behaviors>
-                                        <local:NumericValidationBehavior />
-                                        </Entry.Behaviors>.Behaviors>-->
-
-                                    <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                                <Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>
-                                            </Frame>
-                                            <Entry Text="{Binding Nome}" Placeholder="Cargo" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                        </StackLayout>
-                                    </Frame>
-
-                                </StackLayout>
-                            </Frame>
-
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="endereco.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding ENDERECO}" Placeholder="Endereço" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding CpfFuncionario}" Placeholder="CPF" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -68,16 +44,16 @@
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="dtnasc.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding Senha}" Placeholder="Data de Nascimento" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding DtNascFuncionario}" Placeholder="Data de Nascimento" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                            <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        <Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding Senha}" Placeholder="Contato" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding Cargo}" Placeholder="Cargo" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -86,7 +62,25 @@
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="email.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding Email}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry Text="{Binding EmailFuncionario}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="endereco.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                    </Frame>
+                                    <Entry Text="{Binding EnderecoFuncionario}" Placeholder="Endereço" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                    </Frame>
+                                    <Entry Text="{Binding ContatoFuncionario}" Placeholder="Contato" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -98,17 +92,6 @@
                                     <Entry Text="{Binding Senha}" Placeholder="Senha" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
-
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="https://www.pikpng.com/pngl/m/373-3736361_cadeado-png.png" Aspect="AspectFill" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding Senha}" Placeholder="Confirmar Senha" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                </StackLayout>
-                            </Frame>
-
-
 
                             <Button Text="Criar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}"/>
 
