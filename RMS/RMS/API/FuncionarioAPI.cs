@@ -8,17 +8,17 @@ using Xamarin.Forms;
 
 namespace RMS.API
 {
-    public class FuncionarioAPI : BaseAPI<FUNCIONARIO>
+    public class UsuarioAPI : BaseAPI<USUARIO>
     {
-        public FuncionarioAPI() : base("Funcionario")
+        public UsuarioAPI() : base("Usuario")
         {
 
         }
 
-        public async Task<FUNCIONARIO> ObterUsuario(string email)
+        public async Task<USUARIO> ObterUsuario(string email)
         => await Get($"/ObterUsuario?email={email}");
 
-        public async Task<object> SALVAR(FUNCIONARIO email)
+        public async Task<object> SALVAR(USUARIO email)
         => await PostObject($"/ObterUsuario", GetHttpContent(email));
 
         internal Task SALVAR(FUNCIONARIO funcionario)

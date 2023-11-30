@@ -35,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\CadastraRFuncionarioPage.xaml.cs">
+      <DependentUpon>CadastrarFuncionarioPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CriarLoginPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
@@ -44,7 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\CadastraFuncionarioPage.xaml">
+    <EmbeddedResource Update="Views\CadastrarFuncionarioPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CarrinhoPage.xaml">

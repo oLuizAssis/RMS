@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace RMS.ViewModels
 {
-    public class CriarLoginViewModel : BaseViewModel
+    public class CadastrarFuncionarioViewModel : BaseViewModel
     {
 
         public Command LoginCommand { get; }
@@ -40,7 +40,7 @@ namespace RMS.ViewModels
         private string _senha;
         public string Senha { get { return _senha; } set { SetProperty(ref _senha, value); } }
 
-        public CriarLoginViewModel()
+        public CadastrarFuncionarioViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
 
@@ -48,15 +48,19 @@ namespace RMS.ViewModels
 
         public async void OnLoginClicked()
         {
-            var teste = new USUARIO
+            var funcionario = new FUNCIONARIO
             {
-                NOMEUSUARIO= nome
-                SENHA= Senha,
-                EMAIL= Email,
-
+                NOMEFUNCIONARIO= NomeFuncionario,
+                CPFFUNCIONARIO = CpfFuncionario,
+                DTNASCFUNCIONARIO = DtNascFuncionario,
+                CARGO = Cargo,
+                EMAILFUNCIONARIO = EmailFuncionario,
+                ENDERECOFUNCIONARIO = EnderecoFuncionario,
+                CONTATOFUNCIONARIO = ContatoFuncionario,
+                SENHA = Senha
             };
 
-            await new UsuarioAPI().SALVAR(teste);
+            await new UsuarioAPI().SALVAR(funcionario);
 
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
 
