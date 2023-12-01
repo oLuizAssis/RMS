@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace RMS.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CadastraFuncionarioPage : ContentPage
+    public partial class CadastrarFuncionarioPage : ContentPage
     {
-        public CadastraFuncionarioPage()
+        public CadastrarFuncionarioPage()
         {
             InitializeComponent();
             this.BindingContext = new CadastrarFuncionarioViewModel();

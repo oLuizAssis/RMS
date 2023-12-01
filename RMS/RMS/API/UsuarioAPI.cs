@@ -21,7 +21,7 @@ namespace RMS.API
         public async Task<object> SALVAR(FUNCIONARIO email)
         => await PostObject($"/ObterUsuario", GetHttpContent(email));
 
-        internal Task SALVAR(FUNCIONARIO funcionario)
+        internal Task SALVE(FUNCIONARIO funcionario)
         {
             throw new NotImplementedException();
         }
