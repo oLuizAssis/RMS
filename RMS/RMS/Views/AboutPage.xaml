@@ -8,16 +8,21 @@
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="shopping_cart1.png" Command="{Binding DirecionaCarrinhoCommand}"/>
+        <ToolbarItem IconImageSource="shopping_cart1.png" Command="{Binding ToggleSearchCommand}"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout BackgroundColor="Black">
+
+        <!-- Entry para pesquisa -->
+        <Frame x:Name="searchFrame" CornerRadius="50" BorderColor="Gray" Padding="5" IsVisible="{Binding IsSearchVisible }" >
+            <Entry Placeholder="Digite para pesquisar" TextChanged="OnTextChanged" BackgroundColor="White"/>
+        </Frame>
         <CollectionView ItemsSource="{Binding Produtos}"
                         SelectionMode="Single"
                             SelectionChangedCommand="{Binding ItemTappedCommand}"
                         SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference ItemsListView}}"
                             x:Name="ItemsListView">
-            <CollectionView.ItemTemplate>
+            <CollectionView.ItemTemplate >
                 <DataTemplate>
                     <StackLayout Padding="0" Margin="10,10,10,0" HorizontalOptions="FillAndExpand">
                         <Frame  BackgroundColor="White" HeightRequest="200" HasShadow="True" Padding="0" Margin="0" CornerRadius="15">

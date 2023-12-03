@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:RMS.ViewModels"
              x:Class="RMS.Views.CarrinhoPage"
              Title="{Binding Title}">
 
@@ -88,6 +89,8 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Button Text="Finalizar Compra" BackgroundColor="Orange" TextColor="White" CornerRadius="30"  Command="{Binding FinalizarCompraCommad}"/>
 
         <Button Text="Esvaziar Carrinho" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LimparCarinhoCommad}"/>
     </StackLayout>

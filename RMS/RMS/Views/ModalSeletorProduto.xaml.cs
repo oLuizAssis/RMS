@@ -21,12 +21,15 @@ namespace RMS.Views
         private IRepository<CARRINHO> _carrinhoRepository;
         private CARRINHO _carrinho;
 
-        public ModalSeletorProduto(CARRINHO carrinho, int quantidadeEstoque)
+        bool _inserir;
+
+        public ModalSeletorProduto(CARRINHO carrinho, int quantidadeEstoque, bool inserir)
         {
             InitializeComponent();
          
             _carrinhoRepository = new Repository<CARRINHO>();
             _carrinho = carrinho;
+            _inserir = inserir;
 
             MontarComponenteStepper(quantidadeEstoque);
 
@@ -45,7 +48,10 @@ namespace RMS.Views
                 _carrinho.QUANTIDADE = quantidadeSelecionada;
                 _carrinho.VALOR_TOTAL = _carrinho.QUANTIDADE * quantidadeSelecionada;
 
-                await _carrinhoRepository.Update(_carrinho);
+                if(_inserir)
+                    await _carrinhoRepository.Insert(_carrinho);
+                else
+                    await _carrinhoRepository.Update(_carrinho);
             }
 
             await PopupNavigation.Instance.PopAsync();

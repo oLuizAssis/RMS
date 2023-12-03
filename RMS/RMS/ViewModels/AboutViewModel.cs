@@ -25,11 +25,11 @@ namespace RMS.ViewModels
         private IRepository<CARRINHO> _carrinhoRepository;
         ProdutoService _produtoService = new ProdutoService();
 
-        public PRODUTO SelectedItem
-        {
-            get;
-            set;
-        }
+        public PRODUTO SelectedItem { get; set; }
+
+        public int UltimaQuantidadeDeCaracteres { get; set; }
+        public bool JaCarregouTodos { get; set; }
+
         private string itemId;
 
         public string ItemId
@@ -44,6 +44,23 @@ namespace RMS.ViewModels
             }
         }
 
+       
+
+        private bool _isSearchVisible;
+        public bool IsSearchVisible
+        {
+            get { return _isSearchVisible; }
+            set
+            {
+                if (_isSearchVisible != value)
+                {
+                    _isSearchVisible = value;
+                    OnPropertyChanged(nameof(IsSearchVisible));
+                }
+            }
+        }
+
+
         public List<PRODUTO> _listaProdutos { get; set; }
 
         private ObservableCollection<PRODUTO> _produtos;
@@ -57,6 +74,7 @@ namespace RMS.ViewModels
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
         public Command<PRODUTO> ItemTappedCommand { get; }
+        public ICommand ToggleSearchCommand => new Command(ToggleSearch);
 
         public AboutViewModel()
         {
@@ -93,13 +111,11 @@ namespace RMS.ViewModels
 
             var itemCarrinho = await _carrinhoRepository.GetFirst(c => c.ID_PRODUTO == produto.ID);
 
-            var descricao = _listaProdutos.Where(c => c.ID == produto.ID).Select(c => c.DESCRICAO).FirstOrDefault();
-
             if (itemCarrinho != null)
             {
                 try
                 {
-                    var promptPage = new ModalSeletorProduto(itemCarrinho, produto.ESTOQUE);
+                    var promptPage = new ModalSeletorProduto(itemCarrinho, produto.ESTOQUE, false);
                     //await Shell.Current.Navigation.PushModalAsync(new NavigationPage(promptPage));
                     await PopupNavigation.Instance.PushAsync(promptPage);
                 }
@@ -108,33 +124,31 @@ namespace RMS.ViewModels
                     return;
                 }
 
-                
+
 
             }
             else
             {
-               var valida =  await App.Current.MainPage.DisplayAlert("Atenção", $"Deseja adicionar o item {descricao} ao carrinho", "Sim", "Não");
-
-                if (valida)
+                var carinho = new CARRINHO()
                 {
-                    await _carrinhoRepository.Insert(new CARRINHO()
-                    {
-                        ID_PRODUTO = produto.ID,
-                        FOTO = produto.FOTO,
-                        NOME_PRODUTO = produto.DESCRICAO,
-                        VALOR_PRODUTO = produto.VALORPRODUTO,
-                        VALOR_TOTAL = produto.VALORPRODUTO,
-                        QUANTIDADE = 1
+                    ID_PRODUTO = produto.ID,
+                    FOTO = produto.FOTO,
+                    NOME_PRODUTO = produto.DESCRICAO,
+                    VALOR_PRODUTO = produto.VALORPRODUTO,
+                    VALOR_TOTAL = produto.VALORPRODUTO,
+                    QUANTIDADE = 0
 
-                    });
-                }
-                
+                };
+
+                var promptPage = new ModalSeletorProduto(carinho, produto.ESTOQUE, true);
+                await PopupNavigation.Instance.PushAsync(promptPage);
+
             }
 
         }
 
         // Luiz - Carrinho icone
-        
+
         public async Task OnTapped(CARRINHO produto)
         {
 
@@ -146,11 +160,11 @@ namespace RMS.ViewModels
 
             if (validaItem != null)
             {
-               await App.Current.MainPage.DisplayAlert("Atenção", $"Item {descricao} já foi adicionado", "OK");
+                await App.Current.MainPage.DisplayAlert("Atenção", $"Item {descricao} já foi adicionado", "OK");
             }
             else
             {
-               var valida =  await App.Current.MainPage.DisplayAlert("Atenção", $"Deseja excluir o item {descricao} do carrinho", "Sim", "Não");
+                var valida = await App.Current.MainPage.DisplayAlert("Atenção", $"Deseja excluir o item {descricao} do carrinho", "Sim", "Não");
 
                 if (valida)
                 {
@@ -159,66 +173,10 @@ namespace RMS.ViewModels
                         ID_PRODUTO = produto.ID
                     });
                 }
-                
+
             }
 
         }
-
-
-
-        //async Task ExecuteLoadItemsCommand()
-        //{
-        //    IsBusy = true;
-
-        //    try
-        //    {
-        //        Items.Clear();
-        //        var items = await DataStore.GetItemsAsync(true);
-        //        foreach (var item in items)
-        //        {
-        //            Items.Add(item);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine(ex);
-        //    }
-        //    finally
-        //    {
-        //        IsBusy = false;
-        //    }
-        //}
-
-        //public void OnAppearing()
-        //{
-        //    IsBusy = true;
-        //    SelectedItem = null;
-        //}
-
-        //public Item SelectedItem
-        //{
-        //    get => _selectedItem;
-        //    set
-        //    {
-        //        SetProperty(ref _selectedItem, value);
-        //        OnItemSelected(value);
-        //    }
-        //}
-
-        //private async void OnAddItem(object obj)
-        //{
-        //    await Shell.Current.GoToAsync(nameof(NewItemPage));
-        //}
-
-        //async void OnItemSelected(Item item)
-        //{
-        //    if (item == null)
-        //        return;
-
-        //    // This will push the ItemDetailPage onto the navigation stack
-        //    await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
-        //}       
-
 
         private void MontarMenuLateral()
         {
@@ -232,6 +190,11 @@ namespace RMS.ViewModels
                 else
                     shellItem.ForEach(x => x.IsVisible = false);
             }
+        }
+
+        private void ToggleSearch()
+        {
+            IsSearchVisible = !IsSearchVisible;
         }
     }
 }

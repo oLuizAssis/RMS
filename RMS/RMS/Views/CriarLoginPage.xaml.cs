@@ -1,10 +1,5 @@
 ﻿using RMS.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,6 +32,17 @@ namespace RMS.Views.Login
             Application.Current.MainPage = new LoginPage();
 
             return true; // Indica que o evento foi manipulado
+        }
+
+        private void OnDateEntryTapped(object sender, EventArgs e)
+        {
+            datePicker.IsVisible = !datePicker.IsVisible;
+        }
+
+        private void OnDateSelected(object sender, DateChangedEventArgs e)
+        {
+            dateEntry.Text = e.NewDate.ToString("D");
+            datePicker.IsVisible = false;
         }
     }
 }

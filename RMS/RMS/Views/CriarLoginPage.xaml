@@ -45,7 +45,19 @@
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="chave_senha.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding DtNascimento}" Placeholder="Data de Nascimento" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    <Entry x:Name="dateEntry" Placeholder="Selecione a data" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Entry.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnDateEntryTapped" />
+                                        </Entry.GestureRecognizers>
+                                        <Entry.Triggers>
+                                            <DataTrigger TargetType="Entry" Binding="{Binding Source={x:Reference datePicker}, Path=IsVisible}" Value="True">
+                                                <Setter Property="IsEnabled" Value="False" />
+                                            </DataTrigger>
+                                        </Entry.Triggers>
+                                    </Entry>
+
+                                    <DatePicker x:Name="datePicker" Format="D" IsVisible="False" DateSelected="OnDateSelected" />
+
                                 </StackLayout>
                             </Frame>
 

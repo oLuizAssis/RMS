@@ -1,6 +1,7 @@
 ﻿using RMS.Data;
 using RMS.Data.Interfaces;
 using RMS.Models;
+using RMS.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,10 +26,13 @@ namespace RMS.ViewModels
         private IRepository<CARRINHO> _carrinhoRepository;
 
         public Command LimparCarinhoCommad { get; }
+        public Command FinalizarCompraCommad { get; }
 
         public CarrinhoViewModel()
         {
             LimparCarinhoCommad = new Command(LimparCarinho);
+
+            FinalizarCompraCommad = new Command(FinalizarCompra);
 
             _produtosCarrinhos = new ObservableCollection<CARRINHO>();
         }
@@ -53,6 +57,11 @@ namespace RMS.ViewModels
         {
             _produtosCarrinhos.Clear();
             _carrinhoRepository.DeleteAll();
+        }
+
+        public void FinalizarCompra()
+        {
+            Shell.Current.GoToAsync($"//{nameof(PagamentosPage)}").ConfigureAwait(true);
         }
     }
 }

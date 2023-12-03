@@ -24,6 +24,7 @@ namespace RMS
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(ModalSeletorProduto), typeof(ModalSeletorProduto));
             Routing.RegisterRoute(nameof(CadastrarFuncionarioPage), typeof(CadastrarFuncionarioPage));
+            Routing.RegisterRoute(nameof(PagamentosPage), typeof(PagamentosPage));
         }
     }
 }

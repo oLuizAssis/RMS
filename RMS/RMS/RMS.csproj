@@ -35,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\PagamentosPage.xaml.cs">
+      <DependentUpon>PagamentosPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CriarLoginPage.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
