@@ -60,7 +60,7 @@ namespace RMS.ViewModels
                 SENHA = Senha
             };
 
-            await new UsuarioAPI().SALVAR(funcionario);
+            await new FuncionarioAPI().SALVAR(funcionario);
 
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
 
