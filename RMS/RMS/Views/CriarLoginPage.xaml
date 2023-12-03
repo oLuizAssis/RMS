@@ -10,6 +10,7 @@
                     <Image Source="logo.png" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
+            <ScrollView>
             <StackLayout Padding="0" Margin="15,50,15,0" HorizontalOptions="FillAndExpand">
                 <Frame  BackgroundColor="White" HeightRequest="800" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
 
@@ -84,7 +85,7 @@
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                         <Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                     </Frame>
-                                    <Entry Text="{Binding Contato}" Placeholder="Contato" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding Contato}" Placeholder="Contato" MaxLength="11" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>
                             </Frame>
 
@@ -105,6 +106,7 @@
 
                 </Frame>
             </StackLayout>
+            </ScrollView>
         </Grid>
     </StackLayout>
 
