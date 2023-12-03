@@ -5,6 +5,7 @@ using RMS.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -21,7 +22,7 @@ namespace RMS.ViewModels
 
         private string _Cpf;
         public string Cpf { get { return _Cpf; } set { SetProperty(ref _Cpf, value); } }
-        
+
         private string _dtnascimento;
         public string DtNascimento { get { return _dtnascimento; } set { SetProperty(ref _dtnascimento, value); } }
 
@@ -36,18 +37,33 @@ namespace RMS.ViewModels
 
         private string _senha;
         public string Senha { get { return _senha; } set { SetProperty(ref _senha, value); } }
-
         public CriarLoginViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
 
+
         }
+
+
+        // public ICommand SalvarCommand { get; }
+
+        //public CriarLoginViewModel()
+        //        {
+        //            SalvarCommand = new Command(OnSalvar);
+        //        }
+
+        //        private void OnSalvar()
+        //        {
+        //            // Lógica para salvar o cadastro do novo usuário
+        //            // Isso pode incluir a validação dos dados do formulário e o salvamento no banco de dados, por exemplo.
+        //        }
+
 
         public async void OnLoginClicked()
         {
             var usuario = new USUARIO
             {
-                NOMEUSUARIO= Nome,
+                NOMEUSUARIO = Nome,
                 CPF = Cpf,
                 DTNASCIMENTO = DtNascimento,
                 EMAIL = Email,
@@ -58,7 +74,7 @@ namespace RMS.ViewModels
 
             await new UsuarioAPI().SALVAR(usuario);
 
-                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
 
         }
     }
