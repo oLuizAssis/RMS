@@ -19,11 +19,11 @@ namespace RMS.API
         => await Get($"/ObterUsuario?email={email}");
 
         public async Task<object> SALVAR(FUNCIONARIO email)
-        => await PostObject($"/ObterUsuario", GetHttpContent(email));
+        => await PostObject($"/CadastrarFuncionario", GetHttpContent(email));
 
-        internal Task SALVE(FUNCIONARIO funcionario)
-        {
-            throw new NotImplementedException();
-        }
+        //internal Task SALVE(FUNCIONARIO funcionario)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

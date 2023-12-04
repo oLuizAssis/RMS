@@ -12,102 +12,102 @@
                     <Image Source="background2.png" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
-            <StackLayout Padding="0" Margin="10,100,10,5" HorizontalOptions="FillAndExpand">
-                <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
+            <ScrollView>
+                <StackLayout Padding="0" Margin="10,100,10,5" HorizontalOptions="FillAndExpand">
+                    <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
 
-                    <StackLayout>
-                        <StackLayout Margin="10">
-                            <Frame HeightRequest="1000" BackgroundColor="White" Padding="10" Margin="0">
-                                <Image Source="novousuario.png" Aspect="AspectFill" Margin="0"/>
-                            </Frame>
-                            <!--<Label Text="NOVO USUÁRIO" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />-->
+                        <StackLayout>
+                            <StackLayout Margin="10">
+                                <Image Source="novousuario.png" Aspect="AspectFit" Margin="0" Scale="0.7"/>
+                                <!--<Label Text="NOVO USUÁRIO" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />-->
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="15,10">
+
+                                <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>
+                                        </Frame>
+                                        <Entry Text="{Binding Nome}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        </Frame>
+                                        <Entry Text="{Binding CPF}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="dtnasc.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        </Frame>
+                                        <Entry x:Name="dateEntry" Placeholder="Data de Nascimento" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Entry.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDateEntryTapped" />
+                                            </Entry.GestureRecognizers>
+                                            <Entry.Triggers>
+                                                <DataTrigger TargetType="Entry" Binding="{Binding Source={x:Reference datePicker}, Path=IsVisible}" Value="True">
+                                                    <Setter Property="IsEnabled" Value="False" />
+                                                </DataTrigger>
+                                            </Entry.Triggers>
+                                        </Entry>
+
+                                        <DatePicker x:Name="datePicker" Format="D" IsVisible="False" DateSelected="OnDateSelected" />
+
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="email.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        </Frame>
+                                        <Entry Text="{Binding Email}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="endereco.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        </Frame>
+                                        <Entry Text="{Binding Endereco}" Placeholder="Endereço" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        </Frame>
+                                        <Entry Text="{Binding Contato}" Placeholder="Contato" MaxLength="11" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="chave_senha.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        </Frame>
+                                        <Entry Text="{Binding Senha}" Placeholder="Senha" MaxLength="8" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Button Text="Salvar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}"/>
+
+                            </StackLayout>
+
                         </StackLayout>
 
-                        <StackLayout Padding="0" Margin="15,10">
-
-                            <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding Nome}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                </StackLayout>
-                            </Frame>
-
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding CPF}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                </StackLayout>
-                            </Frame>
-
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="dtnasc.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
-                                    </Frame>
-                                    <Entry x:Name="dateEntry" Placeholder="Data de Nascimento" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                                        <Entry.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="OnDateEntryTapped" />
-                                        </Entry.GestureRecognizers>
-                                        <Entry.Triggers>
-                                            <DataTrigger TargetType="Entry" Binding="{Binding Source={x:Reference datePicker}, Path=IsVisible}" Value="True">
-                                                <Setter Property="IsEnabled" Value="False" />
-                                            </DataTrigger>
-                                        </Entry.Triggers>
-                                    </Entry>
-
-                                    <DatePicker x:Name="datePicker" Format="D" IsVisible="False" DateSelected="OnDateSelected" />
-
-                                </StackLayout>
-                            </Frame>
-
-                            <Frame BackgroundColor="Transparent" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="email.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding Email}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                </StackLayout>
-                            </Frame>
-
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="endereco.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding Endereco}" Placeholder="Endereço" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                </StackLayout>
-                            </Frame>
-
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding Contato}" Placeholder="Contato" MaxLength="11" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                </StackLayout>
-                            </Frame>
-
-                            <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="chave_senha.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
-                                    </Frame>
-                                    <Entry Text="{Binding Senha}" Placeholder="Senha" MaxLength="8" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
-                                </StackLayout>
-                            </Frame>
-
-                            <Button Text="Salvar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}"/>
-
-                        </StackLayout>
-
-                    </StackLayout>
-
-                </Frame>
-            </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
         </Grid>
     </StackLayout>
 
