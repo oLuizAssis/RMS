@@ -8,8 +8,8 @@
     <StackLayout BackgroundColor="White">
         <Grid>
             <StackLayout Padding="0" Margin="-5" HorizontalOptions="Center">
-                <Frame HeightRequest="100" BackgroundColor="White" Padding="10" Margin="0">
-                    <Image Source="background3.png" Aspect="AspectFill" Margin="0"/>
+                <Frame HeightRequest="1000" BackgroundColor="White" Padding="10" Margin="0">
+                    <Image Source="background2.png" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
             <StackLayout Padding="0" Margin="10,100,10,5" HorizontalOptions="FillAndExpand">
