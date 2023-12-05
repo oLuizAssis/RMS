@@ -82,16 +82,16 @@
 
 
     <!--#region ITENS MENU LATERAL -->
-    <FlyoutItem Title="Produtos" Icon="app.png">
+    <FlyoutItem Title="Produtos" Icon="home.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Adicionar Produtos" Icon="home.png" Route="ItemsPage">
+    <FlyoutItem Title="Adicionar Produtos" Icon="adicionar.png" Route="ItemsPage">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Carrinho" Icon="shopping_cart1.png">
         <ShellContent Route="CarrinhoPage" ContentTemplate="{DataTemplate local:CarrinhoPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Cadastrar Funcionário" Icon="shopping_cart1.png" Route="CadastrarFuncionarioPage">
+    <FlyoutItem Title="Cadastrar Funcionário" Icon="adicionarusuario.png" Route="CadastrarFuncionarioPage">
         <ShellContent Route="CadastrarFuncionarioPage" ContentTemplate="{DataTemplate local:CadastrarFuncionarioPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Sair" Icon="sair.png">

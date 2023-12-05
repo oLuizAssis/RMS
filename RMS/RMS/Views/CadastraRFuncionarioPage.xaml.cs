@@ -35,9 +35,15 @@ namespace RMS.Views
         //    datePicker.IsVisible = false;
         }
 
-        private void InitializeComponent()
+        private void OnDateSelected(object sender, DateChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            dateEntry.Text = e.NewDate.ToString("D");
+            datePicker.IsVisible = false;
         }
+
+        //private void InitializeComponent()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RMS.Views.CadastraFuncionarioPage"
+             x:Class="RMS.Views.CadastrarFuncionarioPage"
              Shell.NavBarIsVisible="True"
              Shell.NavBarHasShadow="True">
 
@@ -12,11 +12,12 @@
                     <Image Source="background2.png" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
-            <ScrollView>
+            
                 <StackLayout Padding="0" Margin="10,100,10,5" HorizontalOptions="FillAndExpand">
                     <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
-
+                    <ScrollView>
                         <StackLayout>
+                        
                             <StackLayout Margin="10">
                                 <Image Source="novofuncionario.png" Aspect="AspectFit" Margin="0" Scale="0.6"/>
                                 <!--<Label Text="NOVO USUÁRIO" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />-->
@@ -29,7 +30,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding Nome}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding NomeFuncionario}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -38,11 +39,11 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding Cpf}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding CpfFuncionario}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
-                                <!--<Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="dtnasc.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
@@ -61,14 +62,14 @@
                                         <DatePicker x:Name="datePicker" Format="D" IsVisible="False" DateSelected="OnDateSelected" />
 
                                     </StackLayout>
-                                </Frame>-->
+                                </Frame>
 
                                 <Frame BackgroundColor="Transparent" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="email.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding Email}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding EmailFuncionario}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -77,7 +78,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="endereco.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding Endereco}" Placeholder="Endereço" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding EnderecoFuncionario}" Placeholder="Endereço" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -86,7 +87,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding Contato}" Placeholder="Contato" MaxLength="11" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding ContatoFuncionario}" Placeholder="Contato" MaxLength="11" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -104,10 +105,10 @@
                             </StackLayout>
 
                         </StackLayout>
-
-                    </Frame>
+                    </ScrollView>
+                </Frame>
                 </StackLayout>
-            </ScrollView>
+            
         </Grid>
     </StackLayout>
 

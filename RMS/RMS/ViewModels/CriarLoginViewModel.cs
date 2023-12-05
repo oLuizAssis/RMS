@@ -68,6 +68,7 @@ namespace RMS.ViewModels
                 DTNASCIMENTO = DtNascimento,
                 EMAIL = Email,
                 ENDERECO = Endereco,
+                PERFIL = "Comprador",
                 CONTATO = Contato,
                 SENHA = Senha
             };

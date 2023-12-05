@@ -17,25 +17,25 @@ namespace RMS.ViewModels
 
 
         private string _nome;
-        public string NomeFuncionario { get { return _nome; } set { SetProperty(ref _nome, value); } }
+        public string Nome { get { return _nome; } set { SetProperty(ref _nome, value); } }
 
         private string _Cpf;
-        public string CpfFuncionario { get { return _Cpf; } set { SetProperty(ref _Cpf, value); } }
+        public string Cpf { get { return _Cpf; } set { SetProperty(ref _Cpf, value); } }
         
         private string _dtnascimento;
-        public string DtNascFuncionario { get { return _dtnascimento; } set { SetProperty(ref _dtnascimento, value); } }
+        public string DtNasc { get { return _dtnascimento; } set { SetProperty(ref _dtnascimento, value); } }
 
         private string _cargo;
         public string Cargo { get { return _cargo; } set { SetProperty(ref _cargo, value); } }
         
         private string _email;
-        public string EmailFuncionario { get { return _email; } set { SetProperty(ref _email, value); } }
+        public string Email { get { return _email; } set { SetProperty(ref _email, value); } }
 
         private string _endereco;
-        public string EnderecoFuncionario { get { return _endereco; } set { SetProperty(ref _endereco, value); } }
+        public string Endereco { get { return _endereco; } set { SetProperty(ref _endereco, value); } }
 
         private string _contato;
-        public string ContatoFuncionario { get { return _contato; } set { SetProperty(ref _contato, value); } }
+        public string Contato { get { return _contato; } set { SetProperty(ref _contato, value); } }
 
         private string _senha;
         public string Senha { get { return _senha; } set { SetProperty(ref _senha, value); } }
@@ -48,21 +48,21 @@ namespace RMS.ViewModels
 
         public async void OnLoginClicked()
         {
-            var funcionario = new FUNCIONARIO
+            var funcionario = new USUARIO
             {
-                NOMEFUNCIONARIO= NomeFuncionario,
-                CPFFUNCIONARIO = CpfFuncionario,
-                DTNASCFUNCIONARIO = DtNascFuncionario,
-                CARGO = Cargo,
-                EMAILFUNCIONARIO = EmailFuncionario,
-                ENDERECOFUNCIONARIO = EnderecoFuncionario,
-                CONTATOFUNCIONARIO = ContatoFuncionario,
+                NOME= Nome,
+                CPF = Cpf,
+                DTNASCIMENTO = DtNasc,
+                EMAIL = Email,
+                ENDERECO = Endereco,
+                CONTATO = Contato,
+                PERFIL = "Vendedor",
                 SENHA = Senha
             };
 
-            await new FuncionarioAPI().SALVAR(funcionario);
+            await new UsuarioAPI().SALVAR(funcionario);
 
-                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            Application.Current.MainPage = new AppShell();
 
         }
     }
