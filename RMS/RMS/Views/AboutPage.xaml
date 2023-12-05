@@ -8,7 +8,7 @@
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="shopping_cart1.png" Command="{Binding ToggleSearchCommand}"/>
+        <ToolbarItem IconImageSource="lupa3.png" Command="{Binding ToggleSearchCommand}"/>
     </ContentPage.ToolbarItems>
 
     <StackLayout BackgroundColor="Black">

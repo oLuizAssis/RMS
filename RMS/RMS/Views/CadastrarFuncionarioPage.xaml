@@ -38,11 +38,11 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding CPF}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding Cpf}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
-                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                <!--<Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="dtnasc.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
@@ -61,7 +61,7 @@
                                         <DatePicker x:Name="datePicker" Format="D" IsVisible="False" DateSelected="OnDateSelected" />
 
                                     </StackLayout>
-                                </Frame>
+                                </Frame>-->
 
                                 <Frame BackgroundColor="Transparent" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                     <StackLayout Orientation="Horizontal">

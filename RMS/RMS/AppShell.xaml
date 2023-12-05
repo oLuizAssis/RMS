@@ -71,10 +71,10 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="Black"
+            <Grid BackgroundColor="White"
                   HeightRequest="200">
-                <Image Aspect="AspectFill"
-                       Source="logo.pg" />
+                <Image Margin="5,15,15,15" Aspect="AspectFill"
+                       Source="background3.pg" />
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
@@ -91,8 +91,8 @@
     <FlyoutItem Title="Carrinho" Icon="shopping_cart1.png">
         <ShellContent Route="CarrinhoPage" ContentTemplate="{DataTemplate local:CarrinhoPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Cadastrar Funcionário" Icon="shopping_cart1.png" Route="CadastraFuncionarioPage">
-        <ShellContent Route="CadastraFuncionarioPage" ContentTemplate="{DataTemplate local:CadastrarFuncionarioPage}" />
+    <FlyoutItem Title="Cadastrar Funcionário" Icon="shopping_cart1.png" Route="CadastrarFuncionarioPage">
+        <ShellContent Route="CadastrarFuncionarioPage" ContentTemplate="{DataTemplate local:CadastrarFuncionarioPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Sair" Icon="sair.png">
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />

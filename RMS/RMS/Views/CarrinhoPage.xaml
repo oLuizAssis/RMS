@@ -5,7 +5,7 @@
              x:Class="RMS.Views.CarrinhoPage"
              Title="{Binding Title}">
 
-    <StackLayout BackgroundColor="Black">
+    <StackLayout BackgroundColor="White">
         <CollectionView ItemsSource="{Binding ProdutosCarrinhos}"
                     SelectionMode="Single"
                         SelectionChangedCommand="{Binding ItemTappedCommand}"

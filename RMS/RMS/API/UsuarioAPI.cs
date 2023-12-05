@@ -20,8 +20,8 @@ namespace RMS.API
         public async Task<USUARIO> ObterUsuario(string email)
         => await Get($"/ObterUsuario?email={email}");
 
-        public async Task<object> SALVAR(USUARIO email)
-        => await PostObject($"/CadastrarUsuario", GetHttpContent(email));
+        public async Task<object> SALVAR(USUARIO novoUsuario)
+        => await PostObject($"/CadastrarUsuario", GetHttpContent(novoUsuario));
 
         //internal Task SALVAR(USUARIO usuario)
         //{

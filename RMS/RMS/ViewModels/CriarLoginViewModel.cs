@@ -63,7 +63,7 @@ namespace RMS.ViewModels
         {
             var usuario = new USUARIO
             {
-                NOMEUSUARIO = Nome,
+                NOME = Nome,
                 CPF = Cpf,
                 DTNASCIMENTO = DtNascimento,
                 EMAIL = Email,
@@ -74,7 +74,7 @@ namespace RMS.ViewModels
 
             await new UsuarioAPI().SALVAR(usuario);
 
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            Application.Current.MainPage = new AppShell();
 
         }
     }

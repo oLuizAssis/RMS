@@ -5,6 +5,7 @@
              Shell.NavBarIsVisible="True"
              Shell.NavBarHasShadow="True">
 
+    <!--<ScrollView>-->
     <StackLayout BackgroundColor="White">
         <Grid>
             <StackLayout Padding="0" Margin="-5" HorizontalOptions="Center">
@@ -12,11 +13,11 @@
                     <Image Source="background2.png" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
-            <ScrollView>
-                <StackLayout Padding="0" Margin="10,100,10,5" HorizontalOptions="FillAndExpand">
+           
+                <StackLayout Padding="20" Margin="10,120,10,5" HorizontalOptions="FillAndExpand">
                     <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
-
-                        <StackLayout>
+                        <ScrollView>
+                            <StackLayout>
                             <StackLayout Margin="10">
                                 <Image Source="novousuario.png" Aspect="AspectFit" Margin="0" Scale="0.7"/>
                                 <!--<Label Text="NOVO USUÁRIO" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />-->
@@ -38,7 +39,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding CPF}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                            <Entry Text="{Binding Cpf}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -47,7 +48,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="dtnasc.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry x:Name="dateEntry" Placeholder="Data de Nascimento" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Entry x:Name="dateEntry" Placeholder="Data de Nascimento" MaxLength="10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                                             <Entry.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="OnDateEntryTapped" />
                                             </Entry.GestureRecognizers>
@@ -104,11 +105,11 @@
                             </StackLayout>
 
                         </StackLayout>
-
+                            </ScrollView>
                     </Frame>
                 </StackLayout>
-            </ScrollView>
         </Grid>
     </StackLayout>
 
+        <!--</ScrollView>-->
 </ContentPage>

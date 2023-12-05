@@ -12,12 +12,12 @@
                     <Image Source="background2.png" Aspect="AspectFill" Margin="0"/>
                 </Frame>
             </StackLayout>
-            <StackLayout Padding="0" Margin="10,100,10,5" HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="0" Margin="10,120,10,5" HorizontalOptions="FillAndExpand">
                 <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
 
                     <StackLayout>
 
-                        <StackLayout Padding="0" Margin="5" HorizontalOptions="Center">
+                        <StackLayout Padding="10" Margin="5" HorizontalOptions="Center">
                                 <Image Source="login.png" Aspect="AspectFill" Margin="0" HeightRequest="80" WidthRequest="400"/>
                             <!--<Label Text="LOGIN" TextColor="Black" FontSize="25" FontFamily="RobotoCondensed-Bold" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>-->
                         </StackLayout>
