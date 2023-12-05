@@ -46,7 +46,7 @@ namespace RMS.Views
             else
             {
                 _carrinho.QUANTIDADE = quantidadeSelecionada;
-                _carrinho.VALOR_TOTAL = _carrinho.QUANTIDADE * quantidadeSelecionada;
+                _carrinho.VALOR_TOTAL = _carrinho.VALOR_PRODUTO * quantidadeSelecionada;
 
                 if(_inserir)
                     await _carrinhoRepository.Insert(_carrinho);

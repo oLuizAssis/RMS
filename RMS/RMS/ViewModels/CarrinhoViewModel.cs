@@ -59,9 +59,19 @@ namespace RMS.ViewModels
             _carrinhoRepository.DeleteAll();
         }
 
-        public void FinalizarCompra()
+        public async void FinalizarCompra()
         {
-            Shell.Current.GoToAsync($"//{nameof(PagamentosPage)}").ConfigureAwait(true);
+            try
+            {
+                if (_produtosCarrinhos.Count() == 0)
+                    await App.Current.MainPage.DisplayAlert("Aviso", $"Não é possivel finalizar pois não existem produtos em seu carrinho!", "Ok");
+                else
+                    await Shell.Current.GoToAsync(nameof(PagamentosPage));
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
     }
 }

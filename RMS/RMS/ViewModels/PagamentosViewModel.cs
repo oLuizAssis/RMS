@@ -14,15 +14,10 @@ namespace RMS.ViewModels
     public class PagamentosViewModel : BaseViewModel
     {
 
-        //public Command FinalizarCompraCommad { get; }
 
         public PagamentosViewModel()
         {
            
-        }
-
-        public void OnAppearing()
-        {
         }
     }
 }

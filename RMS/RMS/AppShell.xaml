@@ -94,6 +94,9 @@
     <FlyoutItem Title="Cadastrar Funcionário" Icon="adicionarusuario.png" Route="CadastrarFuncionarioPage">
         <ShellContent Route="CadastrarFuncionarioPage" ContentTemplate="{DataTemplate local:CadastrarFuncionarioPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Pagamento" Icon="shopping_cart1.png" Route="PagamentosPage" IsVisible="False">
+        <ShellContent Route="PagamentosPage" ContentTemplate="{DataTemplate local:PagamentosPage}" />
+    </FlyoutItem>
     <FlyoutItem Title="Sair" Icon="sair.png">
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </FlyoutItem>
