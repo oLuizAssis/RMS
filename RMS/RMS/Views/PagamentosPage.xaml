@@ -5,9 +5,62 @@
              x:Class="RMS.Views.PagamentosPage"
              Title="Pagamentos">
 
-    <StackLayout BackgroundColor="White">
+    <StackLayout Margin="20">
 
-        <Button Text="Finalizar" BackgroundColor="Orange" TextColor="White" CornerRadius="30" />
+
+        <!-- CarouselView para Imagens dos Produtos -->
+        <CarouselView x:Name="carouselProdutos" ItemsSource="{Binding ProdutosSelecionados}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="0" Margin="10,10,10,0" HorizontalOptions="FillAndExpand">
+                        <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="10">
+                            <StackLayout>
+                                <!-- Imagem do Produto -->
+                                <StackLayout Grid.Row="0" Grid.Column="0" >
+                                    <Frame HeightRequest="400" CornerRadius="20" Padding="5" Margin="5">
+                                        <Image Source="{Binding FOTO}" Aspect="AspectFill" Margin="0" />
+                                    </Frame>
+                                </StackLayout>
+
+                                <!-- Informações do Produto -->
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding NOME_PRODUTO}" FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding VALOR_TOTAL, StringFormat='R$ {0:F2}'}" FontSize="Small" />
+                                    <!-- Adicione mais informações conforme necessário -->
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <!-- Informações sobre o Carrinho -->
+        <Label Text="Resumo do Carrinho:" FontAttributes="Bold" FontSize="Medium"/>
+        <!-- Adicione aqui elementos para mostrar os itens no carrinho, quantidades, preços, etc. -->
+
+        <!-- Dropdown para Formas de Pagamento -->
+        <Label Text="Forma de Pagamento:"/>
+        <Picker x:Name="pickerFormasPagamento" Title="Selecione uma forma de pagamento">
+            <Picker.Items>
+                <x:String>Cartão de Crédito</x:String>
+                <x:String>Cartão de Débito</x:String>
+                <x:String>Boleto Bancário</x:String>
+                <x:String>Transferência Bancária</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <!-- Campo para Informar Dados Adicionais -->
+        <Label Text="Informações Adicionais:"/>
+        <Editor x:Name="editorInformacoesAdicionais" HeightRequest="80"/>
+
+        <!-- Resumo da Compra -->
+        <Label Text="Resumo da Compra:" FontAttributes="Bold" FontSize="Medium"/>
+        <Label x:Name="valorTotalLabel" FontSize="Medium"/>
+        <!-- Adicione aqui elementos para mostrar o resumo da compra, total, taxas, etc. -->
+
+        <!-- Botões de Ação -->
+        <Button Text="Finalizar Compra" BackgroundColor="Orange" CornerRadius="30" Clicked="FinalizarCompra_Clicked"/>
 
     </StackLayout>
 </ContentPage>
