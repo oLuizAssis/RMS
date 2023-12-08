@@ -24,6 +24,14 @@ namespace RMS.Views.Login
         //    Shell.Current.GoToAsync(nameof(LoginPage));
         //}
 
+        private async void OnSalvarButtonClicked(object sender, EventArgs e)
+        {
+            // Lógica para salvar os dados no banco de dados
+            // ...
+
+            // Exibir mensagem de sucesso
+            await DisplayAlert("Sucesso", "Novo usuário cadastrado com sucesso!", "OK");
+        }
         protected override bool OnBackButtonPressed()
         {
             // Realize qualquer lógica necessária ao pressionar o botão "voltar"

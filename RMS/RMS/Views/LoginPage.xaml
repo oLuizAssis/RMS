@@ -27,7 +27,7 @@
                             <Frame BackgroundColor="Transparent"  BorderColor="{Binding Cor_Borda}" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
-                                        <Image Source="https://img2.freepng.es/20190702/tl/kisspng-computer-icons-portable-network-graphics-avatar-tr-clip-directory-professional-transparent-amp-png-5d1bfa95e508d4.2980489715621147099381.jpg" Aspect="AspectFill" Margin="0"/>
+                                        <Image Source="profile_1.png" Aspect="AspectFill" Margin="0"/>
                                     </Frame>
                                     <Entry Text="{Binding Email}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                 </StackLayout>

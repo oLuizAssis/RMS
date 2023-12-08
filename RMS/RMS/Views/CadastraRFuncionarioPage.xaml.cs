@@ -19,6 +19,15 @@ namespace RMS.Views
             this.BindingContext = new CadastrarFuncionarioViewModel();
         }
 
+
+        private async void OnSalvarButtonClicked(object sender, EventArgs e)
+        {
+            // Lógica para salvar os dados no banco de dados
+            // ...
+
+            // Exibir mensagem de sucesso
+            await DisplayAlert("Sucesso", "Novo funcionário cadastrado com sucesso!", "OK");
+        }
         //protected override bool OnBackButtonPressed()
         //{
         //    return base.OnBackButtonPressed();

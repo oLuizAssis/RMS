@@ -2,43 +2,102 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RMS.Views.ItemsPage"
-             Title="{Binding Title}"
-             xmlns:local="clr-namespace:RMS.ViewModels"  
-             xmlns:model="clr-namespace:RMS.Models"  
-             x:Name="BrowseItemsPage">
+             Shell.NavBarIsVisible="True"
+             Shell.NavBarHasShadow="True">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
-    <!--
-      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
-      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
-    -->
-    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Spacing="50" Padding="10" x:DataType="model:Item"  WidthRequest="50">
-                        <Label Text="{Binding Text}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                        <Label Text="{Binding Description}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </RefreshView>
+    <!--<ScrollView>-->
+    <StackLayout BackgroundColor="White">
+        <Grid>
+            <StackLayout Padding="0" Margin="-5" HorizontalOptions="Center">
+                <Frame HeightRequest="1000" BackgroundColor="White" Padding="10" Margin="0">
+                    <Image Source="background2.png" Aspect="AspectFill" Margin="0"/>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Padding="20" Margin="10,120,10,5" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="500" HasShadow="True" Padding="0" Margin="0" CornerRadius="30">
+                    <ScrollView>
+                        <StackLayout>
+                            <StackLayout Margin="10">
+                                <Image Source="novo_item.png" Aspect="AspectFit" Margin="0" Scale="0.9"/>
+                                <!--<Label Text="NOVO ITEM" TextColor="Black" FontSize="25" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" />-->
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="15,10">
+
+                                <Frame BackgroundColor="Transparent" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <!--<Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>-->
+                                        </Frame>
+                                        <Entry Text="{Binding Titulo}" Placeholder="Titulo" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <!--<Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>-->
+                                        </Frame>
+                                        <Entry Text="{Binding Descricao}" Placeholder="Descrição" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Padding="0,15,0,0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <!--<Image Source="email.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>-->
+                                        </Frame>
+                                        <Entry Text="{Binding NumeroSerie}" Placeholder="Numero de Série" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <!--<Image Source="endereco.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>-->
+                                        </Frame>
+                                        <Entry Text="{Binding Categoria}" Placeholder="Categoria" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <!--<Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>-->
+                                        </Frame>
+                                        <Entry Text="{Binding Status}" Placeholder="Status" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <!--<Image Source="chave_senha.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>-->
+                                        </Frame>
+                                        <Entry Text="{Binding Marca}" Placeholder="Marca" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Frame BackgroundColor="Transparent" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                            <Image Source="cifrao.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
+                                        </Frame>
+                                        <Entry Text="{Binding Valor}" Placeholder="Valor" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <Button Text="Salvar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}" Clicked="OnSalvarButtonClicked"/>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </ScrollView>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+    <!--</ScrollView>-->
 </ContentPage>

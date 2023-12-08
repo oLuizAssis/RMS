@@ -100,7 +100,9 @@
                                     </StackLayout>
                                 </Frame>
 
-                                <Button Text="Salvar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}"/>
+                                <!--<Button Text="Salvar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}"/>-->
+                                <Button Text="Salvar" BackgroundColor="Black" TextColor="White" CornerRadius="30" Command="{Binding LoginCommand}" Clicked="OnSalvarButtonClicked"/>
+
 
                             </StackLayout>
 
