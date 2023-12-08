@@ -30,7 +30,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="nome.png" Aspect="AspectFit" Scale="0.9" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding NomeFuncionario}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding Nome}" Placeholder="Nome" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -39,7 +39,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="cpf.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding CpfFuncionario}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding Cpf}" MaxLength="11" Keyboard="Numeric" Placeholder="CPF" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -69,7 +69,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="email.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding EmailFuncionario}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding Email}" Placeholder="Email" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -78,7 +78,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="endereco.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding EnderecoFuncionario}" Placeholder="Endereço" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding Endereco}" Placeholder="Endereço" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
@@ -87,7 +87,7 @@
                                         <Frame BackgroundColor="Orange" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
                                             <Image Source="contato.png" Aspect="AspectFit" Scale="0.8" Margin="0"/>
                                         </Frame>
-                                        <Entry Text="{Binding ContatoFuncionario}" Placeholder="Contato" MaxLength="11" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
+                                        <Entry Text="{Binding Contato}" Placeholder="Contato" MaxLength="11" Keyboard="Numeric" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>
                                     </StackLayout>
                                 </Frame>
 
